@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Syncopate&display=swap');
+
+
+.navbar-brand {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 40px;
+}
+
+.btn-primary-outline {
+    color: #0000;
+    background-color: #FFFF;
+    border-color: #FFFF;
+}
+
+.btn-primary-outline:hover {
+    color: #FFFF;
+    font-weight: 600;
+    background-color: whitesmoke;
+    border-color: #FFFF;
+}
