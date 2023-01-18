@@ -7,10 +7,11 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
   showModal: boolean = false;
-
+  email: string = '';
+  password: string = '';
 
   captura() {
-    console.log(this.showModal);
+    console.log(this.email, this.password);
   }
 
   mostra() {

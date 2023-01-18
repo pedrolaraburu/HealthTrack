@@ -5,16 +5,16 @@
             <h1 class="text-text mb-3 fw-bolder">Login</h1>
             <form>
                 <div class="form-floating mt-3 mb-3">
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail">
+                    <input name="teste" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" [(ngModel)]="email">
                     <label for="exampleInputEmail1" class="form-label">E-mail</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                    <input name="teste" type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" [(ngModel)]="password">
                     <label for="exampleInputPassword1" class="form-label">Senha</label>
                 </div>
                 <div class="d-grid gap-2 text-center mt-3">
                     <button type="submit" id="butao" class="btn btn-primary hover:underline"
-                        style="background-color: #003478;">Entrar</button>
+                        style="background-color: #003478;" (click)="captura()">Entrar</button>
                 </div>
             </form>
             <div class="text-center mt-2">
