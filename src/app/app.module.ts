@@ -9,6 +9,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     NotfoundComponent,
     FooterComponent,
+    CadastroComponent,
   ],
   imports: [
     BrowserModule,

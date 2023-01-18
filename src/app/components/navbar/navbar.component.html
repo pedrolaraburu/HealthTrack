@@ -5,9 +5,12 @@
                 class="d-inline-block align-text-center">
             HealthTrack
         </a>
-        <div class="d-flex flex-row justify-content-end mt-3">
+        <div class="d-flex flex-row justify-content-end mt-3" *ngIf="cadastro==false;else templateElse">
             <p class="px-2 fw-bolder text-light">Não possui uma conta?</p>
-            <button class="btn btn-primary-outline fw-bolder text-black">Criar conta</button>
+            <button class="btn btn-primary-outline fw-bolder text-black" routerLink="/cadastro">Criar conta</button>
         </div>
+        <ng-template #templateElse>
+            <button class="btn btn-primary-outline fw-bolder text-black" routerLink="/home">Voltar</button>
+          </ng-template>
     </div>
 </nav>
