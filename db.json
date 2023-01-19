@@ -27,27 +27,6 @@
       "lastName": "Laraburu",
       "email": "claraburu@gmail.com",
       "password": "123"
-    },
-    {
-      "id": "7311",
-      "name": "",
-      "lastName": " ",
-      "email": " ",
-      "password": " "
-    },
-    {
-      "id": "9099",
-      "name": "a",
-      "lastName": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": "6224",
-      "name": "",
-      "lastName": "",
-      "email": " ",
-      "password": ""
     }
   ]
 }
