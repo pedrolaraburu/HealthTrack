@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { UserService } from './services/user.service';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     NotfoundComponent,
     FooterComponent,
     CadastroComponent,
-    DashboardComponent
+    DashboardComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

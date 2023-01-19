@@ -9,7 +9,7 @@ import { UserService } from "src/app/services/user.service";
 })
 export class CadastroComponent {
     teste: boolean = true;
-    showModal : boolean = false;
+    
     showAlert: boolean = false;
     @Output() registerUserEvent = new EventEmitter<UserInterface>();
 
@@ -19,7 +19,8 @@ export class CadastroComponent {
     password: string = "";
     password2: string = "";
 
-    constructor(private _usersService: UserService) {}
+    constructor(private _usersService: UserService) {
+    }
 
     addData(): UserInterface {
         const newUser: UserInterface = {
@@ -59,7 +60,6 @@ export class CadastroComponent {
             password: this.password,
         });
         this.clearData();
-        this.showModal = true;
       } else {
         this.showAlert = true;
       }

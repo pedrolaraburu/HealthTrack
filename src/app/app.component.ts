@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { UserInterface } from "./models/user.interface";
 import { UserService } from "./services/user.service";
-import { Subscription } from "rxjs";
+import { Subscription, take } from "rxjs";
 import { Router } from "@angular/router";
 import { HomeComponent } from "./pages/home/home.component";
 @Component({
@@ -15,10 +15,11 @@ export class AppComponent implements OnInit, OnDestroy {
 	users: UserInterface[] = [];
 	dummy: any = [];
 	constructor(private usersService: UserService, private router: Router ) {
-		this.subscription = usersService.changeEmitted$.subscribe(element => {
+		this.subscription = usersService.changeEmitted$.pipe(take(1)).subscribe(element => {
 			console.log(element);
 			try {
 				this.addUser(element);
+				usersService.emitChange(true);
 			}
 			catch {
 				console.log('Deu ruim!')
