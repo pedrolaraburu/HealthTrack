@@ -4,28 +4,7 @@
       "id": "1",
       "name": "Pedro",
       "lastName": "Laraburu",
-      "email": "pedrolaraburu@gmail.com",
-      "password": "123"
-    },
-    {
-      "id": "0.43290446249715175",
-      "name": "vick",
-      "lastName": "laraburu",
-      "email": "vickylaraburu@gmail.com",
-      "password": "321"
-    },
-    {
-      "id": "0.9705984473497771",
-      "name": "pedrin",
-      "lastName": "teste",
-      "email": "pedrinteste@gmail.com",
-      "password": "321"
-    },
-    {
-      "id": "0.6278855606964686",
-      "name": "joao",
-      "lastName": "louco",
-      "email": "jlouco123@gmail.com",
+      "email": "pedrolaraburu123@gmail.com",
       "password": "123"
     }
   ]

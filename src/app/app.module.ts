@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { UserService } from './services/user.service';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +23,13 @@ import { UserService } from './services/user.service';
     NotfoundComponent,
     FooterComponent,
     CadastroComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

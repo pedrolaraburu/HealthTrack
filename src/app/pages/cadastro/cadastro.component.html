@@ -6,33 +6,48 @@
             <form>
                 <div class="d-flex flex-row gap-3">
                     <div class="form-floating mt-3 mb-3">
-                        <input type="text" aria-label="First name" id="name" class="form-control" placeholder="Nome" [(ngModel)]="name" name="nome">
+                        <input type="text" aria-label="First name" id="name" class="form-control" placeholder="Nome" [(ngModel)]="name" name="nome" minlength="8" maxlength="64">
                         <label for="name" style="color:grey">Nome</label>
                     </div>
                     <div class="form-floating mt-3 mb-3">
                         <input type="text" aria-label="Last name" id="lName" class="form-control"
-                            placeholder="Sobrenome" [(ngModel)]="lName" name="sobrenome">
+                            placeholder="Sobrenome" [(ngModel)]="lName" name="sobrenome" minlength="8" maxlength="64">
                         <label for="lName" style="color:grey">Sobrenome</label>
                     </div>
                 </div>
                 <div class="form-floating mt-3 mb-3">
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="E-mail" [(ngModel)]="emailUser" name="emailUsuario">
+                    placeholder="E-mail" [(ngModel)]="emailUser" name="emailUsuario" minlength="8" maxlength="64">
                     <label for="exampleInputEmail1" style="color:grey">E-mail</label>
                 </div>
                 <div class="d-flex flex-row gap-3">
                     <div class="form-floating mt-3 mb-3">
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" [(ngModel)]="password" name="senhaUser">
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" [(ngModel)]="password" name="senhaUser" minlength="8" maxlength="64">
                         <label for="exampleInputPassword1" style="color:grey">Senha</label>
                     </div>
                     <div class="form-floating mt-3 mb-3">
-                        <input type="password" class="form-control" id="exampleInputPasswordRe" placeholder="Confirme" [(ngModel)]="password2" name="senhaUserRE">
+                        <input type="password" class="form-control" id="exampleInputPasswordRe" placeholder="Confirme" [(ngModel)]="password2" name="senhaUserRE" minlength="8" maxlength="64">
                         <label for="exampleInputPasswordRe" style="color:grey">Confirme</label>
                     </div>
                 </div>
                 <div class="d-grid gap-2 text-center mt-2">
                     <button type="submit" id="butao" class="btn btn-primary hover:underline"
                         style="background-color: #003478;" (click)="onClick()">Cadastrar</button>
+                </div>
+                <div class="text-center mt-2">
+                    <a class="link-secondary" routerLink="/home">Já tem uma conta? Clique aqui!</a>
+                </div>
+                <div class="modal" *ngIf="showModal">
+                    <div class="modal__content">
+                        <h1 class="mt-2 mb-3">Conta cadastrada!</h1>
+                        <div class="mt-2 mb-3 justify-content-center">
+                            <button routerLink="/home" class="btn btn-success">Logar</button>
+                        </div>
+                        <a class="modal__close" (click)="showModal=false">&times;</a>
+                    </div>
+                </div>
+                <div class="alert alert-danger mt-3 text-center" role="alert" *ngIf="showAlert">
+                    Campos inválidos!
                 </div>
             </form>
         </div>

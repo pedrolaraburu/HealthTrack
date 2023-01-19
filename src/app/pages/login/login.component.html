@@ -14,11 +14,14 @@
                 </div>
                 <div class="d-grid gap-2 text-center mt-3">
                     <button type="submit" id="butao" class="btn btn-primary hover:underline"
-                        style="background-color: #003478;" (click)="captura()">Entrar</button>
+                        style="background-color: #003478;" (click)="login()">Entrar</button>
                 </div>
             </form>
             <div class="text-center mt-2">
                 <a class="link-secondary" (click)="mostra()">Esqueceu sua senha?</a>
+            </div>
+            <div class="alert alert-danger mt-3 text-center" role="alert" *ngIf="showLoginAlert">
+                E-mail e/ou senha incorretos.
             </div>
         </div>
     </div>
