@@ -10,36 +10,36 @@ import { HomeComponent } from "./pages/home/home.component";
     styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements OnInit, OnDestroy {
-	subscription: Subscription;
+	// subscription: Subscription;
     title = "HealthTrack";
 	users: UserInterface[] = [];
 	dummy: any = [];
 	constructor(private usersService: UserService, private router: Router ) {
-		this.subscription = usersService.changeEmitted$.pipe(take(1)).subscribe(element => {
-			console.log(element);
-			try {
-				this.addUser(element);
-				usersService.emitChange(true);
-			}
-			catch {
-				console.log('Deu ruim!')
-			}
-        });
+		// this.subscription = usersService.changeEmitted$.pipe(take(1)).subscribe(element => {
+		// 	console.log(element);
+		// 	try {
+		// 		this.addUser(element);
+		// 		usersService.emitChange(true);
+		// 	}
+		// 	catch {
+		// 		console.log('Deu ruim!')
+		// 	}
+        // });
     }
 	ngOnDestroy(): void {
-		this.subscription.unsubscribe();
+		// this.subscription.unsubscribe();
 	}
 	ngOnInit(): void {
-		console.log('Inicei');
-		this.usersService.getUsers().subscribe(users => {
-			console.log('res', users);
-			this.users = users;
-		})
+		// console.log('Inicei');
+		// this.usersService.getUsers().subscribe(users => {
+		// 	console.log('res', users);
+		// 	this.users = users;
+		// })
 	}
 
 	addUser(item: UserInterface): void {
-		this.usersService.addUsers(item).subscribe(newUser => {
-			this.users.push(newUser);
-		});
+		// this.usersService.addUsers(item).subscribe(newUser => {
+		// 	this.users.push(newUser);
+		// });
 	}
 }

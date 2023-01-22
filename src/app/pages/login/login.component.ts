@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserInterface } from 'src/app/models/user.interface';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 @Component({
@@ -9,36 +8,39 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   showLoginAlert: boolean = false;
+  showModal: boolean = false;
+  email: string = '';
+  password: string = '';
   constructor(private usersService: UserService, private router: Router){}
-
 
   ngOnInit(): void {
     console.log('On init.');
   }
-  showModal: boolean = false;
-  email: string = '';
-  password: string = '';
+
 
   captura() {
     console.log(this.email, this.password);
   }
+
 
   mostra() {
     this.showModal = true;
   }
 
   login(): void{
-    this.usersService.getUsers().subscribe(res => {
-      const user = res.find((e: any)=> {
-        return e.email === this.email && e.password === this.password
-      });
-      if (user){
-        this.showLoginAlert = false;
-        this.router.navigate(['/dashboard']);
-      } else {
-        this.showLoginAlert = true;
-      }
-    })
+    // this.usersService.getUsers().subscribe(res => {
+    //   const user = res.find((e: any)=> {
+    //     return e.email === this.email && e.password === this.password
+    //   });
+    //   if (user){
+    //     this.usersService.emitChange(true);
+    //     this.router.navigate(['/dashboard']);
+    //     this.showLoginAlert = false;
+    //   } else {
+    //     this.showLoginAlert = true;
+    //   }
+    // })
+
   }
 
 }

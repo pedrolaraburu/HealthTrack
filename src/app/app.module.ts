@@ -9,11 +9,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { UserService } from './services/user.service';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuardGuard } from './core/guards/auth-guard.guard';
 
 @NgModule({
   declarations: [
@@ -25,15 +27,17 @@ import { ModalComponent } from './components/modal/modal.component';
     FooterComponent,
     CadastroComponent,
     DashboardComponent,
-    ModalComponent
+    ModalComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [UserService],
+  providers: [UserService, AuthService, AuthGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

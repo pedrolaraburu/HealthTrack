@@ -3,44 +3,64 @@
     <div class="row justify-content-center">
         <div class="col-md-4 p-5 mb-5 bg-light rounded-3" style="height: 60vh;">
             <h1 class="text-text mb-3 fw-bolder">Cadastro</h1>
-            <form>
+            <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
                 <div class="d-flex flex-row gap-3">
                     <div class="form-floating mt-3 mb-3">
-                        <input type="text" aria-label="First name" id="name" class="form-control" placeholder="Nome" [(ngModel)]="name" name="nome" minlength="8" maxlength="64">
+                        <input type="text" aria-label="First name" id="name" class="form-control" placeholder="Nome"
+                            name="nome" maxlength="64" formControlName="firstName" [ngClass]="{'is-valid': userfName.touched && userfName.valid, 'is-invalid': !password.valid && (password.touched || userSubmitted)}">
                         <label for="name" style="color:grey">Nome</label>
+                        <div class="invalid-feedback" *ngIf="!userfName.valid && (userfName.touched || userSubmitted)">
+                            Name required</div>
                     </div>
-                    <div class="form-floating mt-3 mb-3">
+                    <div class="form-group form-floating mt-3 mb-3">
                         <input type="text" aria-label="Last name" id="lName" class="form-control"
-                            placeholder="Sobrenome" [(ngModel)]="lName" name="sobrenome" minlength="8" maxlength="64">
+                            placeholder="Sobrenome" name="sobrenome" maxlength="64" formControlName="lastName" [ngClass]="{'is-valid': userlName.touched && userlName.valid, 'is-invalid': !password.valid && (password.touched || userSubmitted)}">
                         <label for="lName" style="color:grey">Sobrenome</label>
+                        <div class="invalid-feedback" *ngIf="!userlName.valid && (userlName.touched || userSubmitted)">
+                            </div>
                     </div>
                 </div>
                 <div class="form-floating mt-3 mb-3">
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="E-mail" [(ngModel)]="emailUser" name="emailUsuario" minlength="8" maxlength="64">
+                        placeholder="E-mail" name="emailUsuario" minlength="8" maxlength="64"
+                        formControlName="emailRegister" [ngClass]="{'is-valid': emailRegister.touched && emailRegister.valid, 'is-invalid': !password.valid && (password.touched || userSubmitted)}">
                     <label for="exampleInputEmail1" style="color:grey">E-mail</label>
+                    <div class="invalid-feedback"
+                        *ngIf="!emailRegister.valid && (emailRegister.touched || userSubmitted)">
+                        <div *ngIf="emailRegister.hasError('required')">
+                            Provide an email
+                        </div>
+                        <div *ngIf="emailRegister.hasError('email')">
+                            Provide a valid email
+                        </div>
+                    </div>
                 </div>
                 <div class="d-flex flex-row gap-3">
                     <div class="form-floating mt-3 mb-3">
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" [(ngModel)]="password" name="senhaUser" minlength="8" maxlength="64">
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha"
+                            name="senhaUser" minlength="3" maxlength="64" formControlName="password1" [ngClass]="{'is-valid': password.touched && password.valid, 'is-invalid': !password.valid && (password.touched || userSubmitted)}">
                         <label for="exampleInputPassword1" style="color:grey">Senha</label>
+                        <div class="invalid-feedback" *ngIf="!password.valid && (password.touched || userSubmitted)">
+                            Password required</div>
                     </div>
+                    <div class="invalid-feedback">teste</div>
                     <div class="form-floating mt-3 mb-3">
-                        <input type="password" class="form-control" id="exampleInputPasswordRe" placeholder="Confirme" [(ngModel)]="password2" name="senhaUserRE" minlength="8" maxlength="64">
+                        <input type="password" class="form-control" id="exampleInputPasswordRe" placeholder="Confirme"
+                            name="senhaUserRE" minlength="3" maxlength="64" formControlName="password2" [ngClass]="{'is-valid': passwordConfirm.touched && passwordConfirm.valid, 'is-invalid': !password.valid && (password.touched || userSubmitted)}">
                         <label for="exampleInputPasswordRe" style="color:grey">Confirme</label>
+                        <div class="invalid-feedback"
+                            *ngIf="!passwordConfirm.valid && (passwordConfirm.touched || userSubmitted)"> Confirm
+                            required</div>
                     </div>
                 </div>
                 <div class="d-grid gap-2 text-center mt-2">
                     <button type="submit" id="butao" class="btn btn-primary hover:underline"
-                        style="background-color: #003478;" (click)="onClick()">Cadastrar</button>
+                        style="background-color: #003478;">Cadastrar</button>
                 </div>
                 <div class="text-center mt-2">
                     <a class="link-secondary" routerLink="/home">Já tem uma conta? Clique aqui!</a>
                 </div>
                 <app-modal></app-modal>
-                <div class="alert alert-danger mt-3 text-center" role="alert" *ngIf="showAlert">
-                    Campos inválidos!
-                </div>
             </form>
         </div>
     </div>

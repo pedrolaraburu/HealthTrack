@@ -1,28 +1,33 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Subject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { UserInterface } from '../models/user.interface';
+import { Injectable } from "@angular/core";
+import { BehaviorSubject, Observable } from "rxjs";
+import { Subject } from "rxjs";
+import { HttpClient } from "@angular/common/http";
+import { UserInterface } from "../models/user.interface";
+import { AuthService } from "./auth.service";
+import { Router } from "@angular/router";
 @Injectable({
-  providedIn: 'root'
+    providedIn: "root",
 })
 export class UserService {
+    // Observable string sources
+    private emitChangeSource = new Subject<any>();
+    // Observable string streams
+    changeEmitted$ = this.emitChangeSource.asObservable();
+    // Service message commands
+    emitChange(change: any) {
+        this.emitChangeSource.next(change);
+    };
+    constructor(private http: HttpClient, private router: Router) {}
 
-  constructor(private http: HttpClient) { }
+    addUser(user: UserInterface) {
+        let users = [];
+        if(localStorage.getItem('Users')) {
+            users = JSON.parse(localStorage.getItem('Users') as string);
+            users = [...users, user];
 
-  getUsers(): Observable<UserInterface[]>{
-    return this.http.get<UserInterface[]>('http://localhost:3000/users')
-  }
-  addUsers(item: UserInterface): Observable<any> {
-    return this.http.post('http://localhost:3000/users', item);
-  }
-  // Observable string sources
-  private emitChangeSource = new Subject<any>();
-  // Observable string streams
-  changeEmitted$ = this.emitChangeSource.asObservable();
-  // Service message commands
-  emitChange(change: any) {
-      this.emitChangeSource.next(change);
-  }
-
+        } else {
+            users = [user];
+        }
+        localStorage.setItem('Users', JSON.stringify(users));
+    }
 }
