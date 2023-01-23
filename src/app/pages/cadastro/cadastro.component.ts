@@ -16,8 +16,8 @@ import { Router } from "@angular/router";
     styleUrls: ["./cadastro.component.scss"],
 })
 export class CadastroComponent implements OnInit {
-    user: any = {};
-    formulario: any;
+    user: UserInterface;
+    formulario: FormGroup;
     teste: boolean = true;
     showAlert: boolean = false;
     userSubmitted: boolean = false;

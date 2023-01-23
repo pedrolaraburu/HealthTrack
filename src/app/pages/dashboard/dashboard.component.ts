@@ -6,14 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  session : any;
-
+  loggedinUser: string;
   ngOnInit(): void {
-    this.loadData()
+    this.loggedIn();
   }
 
-  loadData() {
-    let data: any = localStorage.getItem('Users');
-    this.session = JSON.parse(data);
+  loggedIn() {
+    this.loggedinUser = localStorage.getItem('token') as string;
+    return this.loggedinUser
+  }
+
+  logout() {
+    localStorage.removeItem('token');
   }
 }

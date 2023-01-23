@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
         <div class="col-md-4 p-5 mb-5 bg-light rounded-3" style="height: 60vh;">
             <h1 class="text-text mb-3 fw-bolder">Login</h1>
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin(loginForm)">
                 <div class="form-floating mt-3 mb-3">
                     <input name="teste" type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="E-mail" formControlName="email" [ngClass]="{'is-valid': email.touched && email.valid, 'is-invalid': !email.valid && (email.touched || userSubmitted)}">
                     <label for="inputEmail" class="form-label" style="color:grey">E-mail</label>

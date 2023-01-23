@@ -6,7 +6,11 @@ import {
     FormBuilder,
     FormGroup,
     Validators,
+    NgForm,
 } from "@angular/forms";
+
+import { AuthService } from "src/app/services/auth.service";
+import { Token } from "@angular/compiler";
 @Component({
     selector: "app-login",
     templateUrl: "./login.component.html",
@@ -21,7 +25,8 @@ export class LoginComponent implements OnInit {
     constructor(
         private _usersService: UserService,
         private router: Router,
-        private fb: FormBuilder
+        private fb: FormBuilder,
+        private _authService: AuthService,
     ) {}
 
     ngOnInit(): void {
@@ -52,21 +57,19 @@ export class LoginComponent implements OnInit {
         alert('Função em construção!');
     }
 
-    onSubmitLogin(): void {
+    onSubmitLogin(loginForm : NgForm): void {
         console.log(this.loginForm.value);
         this.userSubmitted = true;
-        // this.usersService.getUsers().subscribe(res => {
-        //   const user = res.find((e: any)=> {
-        //     return e.email === this.email && e.password === this.password
-        //   });
-        //   if (user){
-        //     this.usersService.emitChange(true);
-        //     this.router.navigate(['/dashboard']);
-        //     this.showLoginAlert = false;
-        //   } else {
-        //     this.showLoginAlert = true;
-        //   }
-        // })
+        const token = this._authService.authUser(loginForm.value)
+        console.log(token)
+        if (token) {
+          const tokenUser = this._authService.getNome(loginForm.value)
+          localStorage.setItem('token', tokenUser.name + " " + tokenUser.lastName)
+          // console.log('Logado com sucesso!')
+          this.router.navigate(['/dashboard']);
+        } else {
+          this.showLoginAlert = true;
+        }
     }
 
     // Getters
