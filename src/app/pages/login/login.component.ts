@@ -64,7 +64,8 @@ export class LoginComponent implements OnInit {
         console.log(token)
         if (token) {
           const tokenUser = this._authService.getNome(loginForm.value)
-          localStorage.setItem('token', tokenUser.name + " " + tokenUser.lastName)
+          console.log(tokenUser);
+          localStorage.setItem('token', JSON.stringify(tokenUser))
           // console.log('Logado com sucesso!')
           this.router.navigate(['/dashboard']);
         } else {

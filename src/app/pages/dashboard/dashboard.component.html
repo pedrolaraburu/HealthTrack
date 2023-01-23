@@ -1,8 +1,4 @@
-<!-- 
-<div *ngIf="session">
-    <h1>{{session.nome}} {{session.lastName}}</h1>
-</div> -->
-
 <div class="container">
-    <h1>Olá, {{ loggedinUser }}</h1>
+    <h1>Olá, {{ loggedinUser.name }} {{ loggedinUser.lastName }}</h1>
+    <button class="btn btn-primary" (click)="logout()">Sair</button>
 </div>
