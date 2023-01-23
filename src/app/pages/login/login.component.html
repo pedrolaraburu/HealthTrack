@@ -3,18 +3,22 @@
     <div class="row justify-content-center">
         <div class="col-md-4 p-5 mb-5 bg-light rounded-3" style="height: 60vh;">
             <h1 class="text-text mb-3 fw-bolder">Login</h1>
-            <form>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
                 <div class="form-floating mt-3 mb-3">
-                    <input name="teste" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" [(ngModel)]="email">
-                    <label for="exampleInputEmail1" class="form-label" style="color:grey">E-mail</label>
-                </div>
+                    <input name="teste" type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="E-mail" formControlName="email" [ngClass]="{'is-valid': email.touched && email.valid, 'is-invalid': !email.valid && (email.touched || userSubmitted)}">
+                    <label for="inputEmail" class="form-label" style="color:grey">E-mail</label>
+                    <div class="invalid-feedback" *ngIf="!email.valid && (email.touched || userSubmitted)">
+                        Email required</div>
+                    </div>
                 <div class="form-floating mb-3">
-                    <input name="teste" type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" [(ngModel)]="password">
-                    <label for="exampleInputPassword1" class="form-label" style="color:grey">Senha</label>
-                </div>
+                    <input name="senha" type="password" class="form-control" id="inputPassword" placeholder="Senha" formControlName="password" [ngClass]="{'is-valid': password.touched && password.valid, 'is-invalid': !password.valid && (password.touched || userSubmitted)}">
+                    <label for="inputPassword" class="form-label" style="color:grey">Senha</label>
+                    <div class="invalid-feedback" *ngIf="!password.valid && (password.touched || userSubmitted)">
+                        Password required</div>
+                    </div>
                 <div class="d-grid gap-2 text-center mt-3">
-                    <button type="submit" id="butao" class="btn btn-primary hover:underline"
-                        style="background-color: #003478;" (click)="login()">Entrar</button>
+                    <button type="submit" id="botao" class="btn btn-primary hover:underline"
+                        style="background-color: #003478;">Entrar</button>
                 </div>
             </form>
             <div class="text-center mt-2">
