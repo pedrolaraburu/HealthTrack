@@ -1,4 +1,75 @@
+<nav class="navbar navbar-expand d-flex flex-column align-item-start" id="navbar">
+    <a class="navbar-brand d-flex flex-column text-center" routerLink="" style="color: #FFFF">
+        <img src="../../../assets/svg/index.svg" alt="" width="128" height="128" class="mx-auto d-block">
+        <span>HealthTrack</span>
+    </a>
+    <ul class="navbar-nav d-flex flex-column mt-3 w-100">
+        <span class="navbar-text pl-4 mx-3">Geral</span>
+        <li class="nav-item w-100">
+            <a href="" class="nav-link text-light pl-4 mx-3"><fa-icon [icon]="faHouse"></fa-icon> Início</a>
+            <a class="nav-link text-light pl-4 mx-3" (click)="logout()"><fa-icon [icon]="faRightFromBracket"></fa-icon>
+                Sair</a>
+        </li>
+        <span class="navbar-text mx-3">Pacientes</span>
+        <li class="nav-item w-100">
+            <a href="" class="nav-link text-light pl-4 mx-3"><fa-icon [icon]="faPlus"></fa-icon> Cadastrar</a>
+            <a href="" class="nav-link text-light pl-4 mx-3"> <fa-icon [icon]="faList"></fa-icon> Listar prontuário</a>
+        </li>
+        <span class="navbar-text pl-4 mx-3">Exames</span>
+        <li class="nav-item w-100">
+            <a href="" class="nav-link text-light pl-4 mx-3"><fa-icon [icon]="faPlus"></fa-icon> Cadastrar exame</a>
+            <a href="" class="nav-link text-light pl-4 mx-3"><fa-icon [icon]="faPlus"></fa-icon> Cadastrar consulta</a>
+        </li>
+    </ul>
+</nav>
+<app-navbar-dashboard>
+    <span class="navbar-text text-light" href="#" id="statistics">Estatísticas e informações</span>
+    <div class="d-flex ms-auto mt-2">
+        <span class="navbar-text">
+            <a class="text-light"><fa-icon [icon]="faUser"></fa-icon></a>
+            {{ loggedinUser.name }} {{ loggedinUser.lastName }}
+        </span>
+    </div>
+</app-navbar-dashboard>
 <div class="container">
-    <h1>Olá, {{ loggedinUser.name }} {{ loggedinUser.lastName }}</h1>
-    <button class="btn btn-primary" (click)="logout()">Sair</button>
-</div>
+    <h2 class="text-text mt-3">Estatísticas do sistema</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="h-100 p-5 text-black bg-light rounded-3 text-center">
+                <span style="font-size: 100px;"><fa-icon [icon]="faUser"></fa-icon> 0</span>
+                <h2 class="text-text text-black mt-2">Pacientes</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 p-5 text-black bg-light rounded-3 text-center">
+                <span style="font-size: 100px;"><fa-icon [icon]="faCalendar"></fa-icon> 0</span>
+                <h2 class="text-text text-black mt-2">Consultas</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 p-5 text-black bg-light rounded-3 text-center">
+                <span style="font-size: 100px;"><fa-icon [icon]="faBookMedical"></fa-icon> 0</span>
+                <h2 class="text-text text-black mt-2">Exames</h2>
+            </div>
+        </div>
+    </div>
+    <h2 class="text-text mt-3">Informações Rápidas de Pacientes</h2>
+    <div class="d-flex flex-row">
+        <div class="input-group input-group-lg">
+            <span class="input-group-text" id="inputGroup-sizing-lg"><fa-icon [icon]="faMagnifyingGlass"></fa-icon>
+            </span>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-lg" placeholder="Digite o nome do paciente">
+        </div>
+        <button class="btn btn-primary btn-lg mx-3">Buscar</button>
+    </div>
+    <div class="col-md-4 mt-4">
+        <div class="h-100 p-3 text-black bg-light rounded-3 text-center">
+            <span style="font-size: 100px;"><fa-icon [icon]="faUser"></fa-icon></span>
+            <p class="text-text text-black">Pedro Laraburu</p>
+            <p class="text-text">19 anos</p>
+            <p class="text-text">(61) 9 9067-3899</p>
+            <p class="text-text">Cassi</p>
+            <a href="" class="text-text">Ver mais</a>
+          </div>
+    </div>

@@ -16,6 +16,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { AuthService } from './services/auth.service';
 import { AuthGuardGuard } from './core/guards/auth-guard.guard';
+import { NavbarDashboardComponent } from './components/navbar-dashboard/navbar-dashboard.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { AuthGuardGuard } from './core/guards/auth-guard.guard';
     CadastroComponent,
     DashboardComponent,
     ModalComponent,
+    NavbarDashboardComponent,
 
   ],
   imports: [
@@ -35,7 +38,8 @@ import { AuthGuardGuard } from './core/guards/auth-guard.guard';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [UserService, AuthService, AuthGuardGuard],
   bootstrap: [AppComponent]
