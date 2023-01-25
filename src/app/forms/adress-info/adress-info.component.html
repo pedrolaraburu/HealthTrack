@@ -1,0 +1,51 @@
+<ng-container [formGroup]="form">
+    <div class="form-container">
+        <div class="d-flex flex-row gap-3 mt-3 mb-3">
+            <div class="form-floating col-md-5">
+                <input type="text" class="form-control" id="cepCadastro" aria-describedby="cepHelp" placeholder="CEP"
+                    name="cepCadastro" formControlName="cep">
+                <label for="cepCadastro" style="color:grey">CEP</label>
+            </div>
+            <div class="form-floating col-md-5">
+                <input type="text" class="form-control" id="cidadeCadastro" aria-describedby="cidadeHelp"
+                    placeholder="Cidade" name="cidadeCadastro" formControlName="cidade">
+                <label for="cidadeCadastro" style="color:grey">Cidade</label>
+            </div>
+            <div class="form-floating col-md-0">
+                <input type="text" class="form-control" id="estadoCadastro" aria-describedby="estadoHelp"
+                    placeholder="Estado" name="estadoCadastro" formControlName="estado">
+                <label for="estadoCadastro" style="color:grey">Estado</label>
+            </div>
+        </div>
+        <div class="d-flex flex-row gap-1 mt-3 mb-3">
+            <div class="form-floating col-md-9">
+                <input type="text" class="form-control" id="logradouroCadastro" aria-describedby="logradouroHelp"
+                    placeholder="Logradouro" name="logradouroCadastro" formControlName="logradouro">
+                <label for="logradouroCadastro" style="color:grey">Logradouro</label>
+            </div>
+            <div class="form-floating col-md-3">
+                <input type="text" class="form-control" id="nEnderecoCadastro" aria-describedby="nEnderecoHelp"
+                    placeholder="Número da Carteira" name="nEnderecoCadastro" formControlName="numberAdress">
+                <label for="nEnderecoCadastro" style="color:grey">Número</label>
+            </div>
+        </div>
+        <div class="d-flex flex-row gap-3 mt-3 mb-3">
+            <div class="form-floating col-md-5">
+                <input type="text" class="form-control" id="complementoCadastro" aria-describedby="complementoHelp"
+                    placeholder="Complemento" name="complementoCadastro" formControlName="complementoAdress">
+                <label for="complementoCadastro" style="color:grey">Complemento</label>
+            </div>
+            <div class="form-floating col-md-0">
+                <input type="text" class="form-control" id="bairroCadastro" aria-describedby="BairroHelp"
+                    placeholder="Bairro" name="bairroCadastro" formControlName="bairroAdress">
+                <label for="bairroCadastro" style="color:grey">Bairro</label>
+            </div>
+            <div class="form-floating col-md-5">
+                <input type="text" class="form-control" id="pontoReferenciaCadastro"
+                    aria-describedby="pontoReferenciaHelp" placeholder="Ponto de Referência"
+                    name="pontoReferenciaCadastro" formControlName="pointOfReference">
+                <label for="pontoReferenciaCadastro" style="color:grey">Ponto de Referência</label>
+            </div>
+        </div>
+    </div>
+</ng-container>

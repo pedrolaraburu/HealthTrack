@@ -18,6 +18,12 @@ import { AuthService } from './services/auth.service';
 import { AuthGuardGuard } from './core/guards/auth-guard.guard';
 import { NavbarDashboardComponent } from './components/navbar-dashboard/navbar-dashboard.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CadastroPacienteComponent } from './pages/cadastro-paciente/cadastro-paciente.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { BasicInfoComponent } from './forms/basic-info/basic-info.component';
+import { ConvenioInfoComponent } from './forms/convenio-info/convenio-info.component';
+import { AdressInfoComponent } from './forms/adress-info/adress-info.component';
+import { ExtraInfoComponent } from './forms/extra-info/extra-info.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +37,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     DashboardComponent,
     ModalComponent,
     NavbarDashboardComponent,
+    CadastroPacienteComponent,
+    SidenavComponent,
+    BasicInfoComponent,
+    ConvenioInfoComponent,
+    AdressInfoComponent,
+    ExtraInfoComponent,
 
   ],
   imports: [

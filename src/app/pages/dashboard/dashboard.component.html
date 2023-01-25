@@ -1,27 +1,4 @@
-<nav class="navbar navbar-expand d-flex flex-column align-item-start" id="navbar">
-    <a class="navbar-brand d-flex flex-column text-center" routerLink="" style="color: #FFFF">
-        <img src="../../../assets/svg/index.svg" alt="" width="128" height="128" class="mx-auto d-block">
-        <span>HealthTrack</span>
-    </a>
-    <ul class="navbar-nav d-flex flex-column mt-3 w-100">
-        <span class="navbar-text pl-4 mx-3">Geral</span>
-        <li class="nav-item w-100">
-            <a href="" class="nav-link text-light pl-4 mx-3"><fa-icon [icon]="faHouse"></fa-icon> Início</a>
-            <a class="nav-link text-light pl-4 mx-3" (click)="logout()"><fa-icon [icon]="faRightFromBracket"></fa-icon>
-                Sair</a>
-        </li>
-        <span class="navbar-text mx-3">Pacientes</span>
-        <li class="nav-item w-100">
-            <a href="" class="nav-link text-light pl-4 mx-3"><fa-icon [icon]="faPlus"></fa-icon> Cadastrar</a>
-            <a href="" class="nav-link text-light pl-4 mx-3"> <fa-icon [icon]="faList"></fa-icon> Listar prontuário</a>
-        </li>
-        <span class="navbar-text pl-4 mx-3">Exames</span>
-        <li class="nav-item w-100">
-            <a href="" class="nav-link text-light pl-4 mx-3"><fa-icon [icon]="faPlus"></fa-icon> Cadastrar exame</a>
-            <a href="" class="nav-link text-light pl-4 mx-3"><fa-icon [icon]="faPlus"></fa-icon> Cadastrar consulta</a>
-        </li>
-    </ul>
-</nav>
+<app-sidenav></app-sidenav>
 <app-navbar-dashboard>
     <span class="navbar-text text-light" href="#" id="statistics">Estatísticas e informações</span>
     <div class="d-flex ms-auto mt-2">

@@ -5,6 +5,7 @@ import { HttpClient } from "@angular/common/http";
 import { UserInterface } from "../models/user.interface";
 import { AuthService } from "./auth.service";
 import { Router } from "@angular/router";
+import { registerIdInterface } from "../models/registerIdentification-interface";
 @Injectable({
     providedIn: "root",
 })
@@ -29,5 +30,17 @@ export class UserService {
             users = [user];
         }
         localStorage.setItem('Users', JSON.stringify(users));
+    }
+
+    addPacient(userR: registerIdInterface) {
+        console.log(userR);
+        let pacients = [];
+        if(localStorage.getItem('Pacients')) {
+            pacients = JSON.parse(localStorage.getItem('Pacients') as string);
+            pacients = [...pacients, userR];
+        } else {
+            pacients = [userR];
+        }
+        localStorage.setItem('Pacients', JSON.stringify(pacients));
     }
 }

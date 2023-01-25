@@ -1,0 +1,18 @@
+<ng-container [formGroup]="form">
+    <div class="form container">
+        <div class="d-flex flex-row gap-1 mt-3 mb-3">
+            <div class="form-floating col-md-6">
+                <input type="text" class="form-control" id="contatoEmergenciaCadastro"
+                    aria-describedby="contatoEmergenciaHelp" placeholder="Contato de Emergência"
+                    name="contatoEmergenciaCadastro" formControlName="emergencyContact">
+                <label for="contatoEmergenciaCadastro" style="color:grey">Contato de Emergência</label>
+            </div>
+            <div class="form-floating col-md-6">
+                <textarea type="text" class="form-control py-5 col-md-6" id="listaAlergiasCadastro"
+                    aria-describedby="listaAlergiasHelp" placeholder="Lista de alergias" name="listaAlergiasCadastro"
+                    formControlName="listOfAlergies"></textarea>
+                <label for="listaAlergiasCadastro" style="color:grey">Lista de alergias</label>
+            </div>
+        </div>
+    </div>
+</ng-container>

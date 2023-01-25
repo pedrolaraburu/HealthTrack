@@ -1,0 +1,40 @@
+<app-sidenav></app-sidenav>
+<app-navbar-dashboard>
+    <span class="navbar-text text-light" href="#" id="statistics">Cadastro de paciente</span>
+    <div class="d-flex ms-auto mt-2">
+        <span class="navbar-text">
+            <a class="text-light"><fa-icon [icon]="faUser"></fa-icon></a>
+            {{ loggedinUser.name }} {{ loggedinUser.lastName }}
+        </span>
+    </div>
+</app-navbar-dashboard>
+<div class="container">
+    <h2 class="text-text mt-3">Preencha os campos para cadastrar</h2>
+    <div class="container-fluid py-5 rounded-3" style="background-color: #ececec;">
+        <div class="d-flex flex-row">
+            <h2 class="display-7 text-text text-black fw-bold">Identificação</h2>
+            <div class="d-flex flex-row justify-content-end ms-auto gap-2">
+                
+            </div>
+        </div>
+        <form [formGroup]="formularioCadastro" (ngSubmit)="onSubmit()">
+            <div class="d-flex flex-row justify-content-end ms-auto gap-2">
+                <div class="form-check form-switch" style="font-size: 28px;">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" (click)="handleSwitch()">
+                    <!-- <label class="form-check-label" for="flexSwitchCheckDefault">Editar</label> -->
+                </div>
+                <button class="btn btn-danger">Deletar</button>
+                <button class="btn btn-primary mx-3">Salvar</button>
+            </div>
+            <app-basic-info inputFormGroupName="basicInfo"></app-basic-info>
+            <h2 class="display-7 text-text text-black fw-bold mt-4">Convênio</h2>
+            <app-convenio-info inputFormGroupName="convenioInfo"></app-convenio-info>
+            <h2 class="display-7 text-text text-black fw-bold mt-4">Dados de Endereço</h2>
+            <app-adress-info inputFormGroupName="adressInfo"></app-adress-info>
+            <h2 class="display-7 text-text text-black fw-bold mt-4">Informações extras</h2>
+            <app-extra-info inputFormGroupName="extraInfo"></app-extra-info>
+        </form>
+        <pre>
+            {{ this.formularioCadastro.value | json }}
+        </pre>
+    </div>

@@ -1,0 +1,62 @@
+<ng-container [formGroup]="form">
+    <div class="form-container">
+        <div class="d-flex flex-row gap-3 mt-3 mb-3" >
+            <div class="form-floating col-md-7">
+                <input type="text" class="form-control" id="nomePaciente" aria-describedby="nomePacienteHelp"
+                    placeholder="Nome Completo" name="nomePaciente" minlength="8" maxlength="64"
+                    formControlName="fullName">
+                <label for="nomePaciente" style="color:grey">Nome Completo</label>
+            </div>
+            <select class="form-select" id='selectCadastro' aria-label="Select genero paciente"
+                formControlName="gender">
+                <option style="color:grey" selected disabled>Gênero</option>
+                <option value="1">Homem</option>
+                <option value="2">Mulher</option>
+            </select>
+            <div class="form-floating">
+                <input type="date" class="form-control" id="dataNascCadastro" aria-describedby="dataNascHelp"
+                    placeholder="data" name="dataNasc" minlength="8" maxlength="64" formControlName="birthDate">
+                <label for="dataNascCadastro" style="color:grey">Data de Nascimento</label>
+            </div>
+        </div>
+        <div class="d-flex flex-row gap-3 mt-3 mb-3">
+            <div class="form-floating col-md-4">
+                <input type="text" class="form-control" id="cpfCadastro" aria-describedby="cpfHelp" placeholder="CPF"
+                    name="cpfCadastro" minlength="11" maxlength="11" formControlName="cpf">
+                <label for="cpfCadastro" style="color:grey">CPF</label>
+            </div>
+            <div class="form-floating col-md-4">
+                <input type="text" class="form-control" id="rgCadastro" aria-describedby="rgHelp" placeholder="RG"
+                    name="rgCadastro" minlength="20" maxlength="20" formControlName="rg">
+                <label for="cpfCadastro" style="color:grey">RG</label>
+            </div>
+            <select class="form-select" id='selectEstadoCivil' aria-label="Select Estado Civil paciente"
+                formControlName="civilState">
+                <option style="color:grey" selected disabled>Estado Civil</option>
+                <option value="1">Solteiro</option>
+                <option value="2">Casado</option>
+                <option value="3">Separado</option>
+                <option value="4">Divorciado</option>
+                <option value="5">Viúvo</option>
+            </select>
+        </div>
+        <div class="d-flex flex-row gap-3 mt-3 mb-3">
+            <div class="form-floating col-md-5">
+                <input type="text" class="form-control" id="telefoneCadastro" aria-describedby="telefoneHelp"
+                    placeholder="Telefone" name="telefoneCadastro" minlength="11" maxlength="11"
+                    formControlName="telephone">
+                <label for="telefoneCadastro" style="color:grey">Telefone</label>
+            </div>
+            <div class="form-floating col-md-5">
+                <input type="text" class="form-control" id="emailCadastro" aria-describedby="emailHelp"
+                    placeholder="E-mail" name="emailCadastro" formControlName="emailIdentification">
+                <label for="emailCadastro" style="color:grey">E-mail</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="naturalidadeCadastro" aria-describedby="naturalidadeHelp"
+                    placeholder="Naturalidade" name="naturalidadeCadastro" formControlName="naturality">
+                <label for="naturalidadeCadastro" style="color:grey">Naturalidade</label>
+            </div>
+        </div>
+    </div>
+</ng-container>
