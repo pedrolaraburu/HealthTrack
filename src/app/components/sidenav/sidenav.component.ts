@@ -38,7 +38,8 @@ export class SidenavComponent {
     faMagnifyingGlass = faMagnifyingGlass;
 
     logout() {
-      localStorage.removeItem("token");
-      this.router.navigate(["/home"]);
-  }
+        localStorage.removeItem("token");
+        this.router.navigate(["/home"]);
+    }
+	
 }

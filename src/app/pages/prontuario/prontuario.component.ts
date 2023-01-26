@@ -14,6 +14,8 @@ import { registerIdInterface } from "src/app/models/registerIdentification-inter
 export class ProntuarioComponent implements OnInit {
 	loggedinUser: any = {};
 	pacients : any = {};
+	filterPacients: any = {};
+	lengthArray: any;
     faUser = faUserCircle;
     faMagnifyingGlass = faMagnifyingGlass;
     faArrowRight = faArrowRight;
@@ -28,6 +30,7 @@ export class ProntuarioComponent implements OnInit {
     ngOnInit(): void {
         this.loggedIn();
 		this.getPacients();
+		this.doFilterPacients();
     }
 
     loggedIn() {
@@ -41,4 +44,14 @@ export class ProntuarioComponent implements OnInit {
 		console.log(this.pacients);
 		return this.pacients;
 	}
+
+	doFilterPacients() {
+        this.filterPacients = this.pacients.filter((e: any) => {
+            return e.ids.medicID === this.loggedinUser.id;
+            // console.log(e.ids.medicID, this.loggedinUser.id);
+        });
+        this.lengthArray = Object.keys(this.filterPacients).length;
+		console.log(this.filterPacients);
+        return this.lengthArray, this.filterPacients;
+    }
 }

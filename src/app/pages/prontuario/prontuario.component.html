@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid py-3 rounded-3 mt-3" style="background-color: #ececec; width: 95rem;" *ngFor="let pacient of pacients">
+    <div class="container-fluid py-3 rounded-3 mt-3" style="background-color: #ececec; width: 95rem;" *ngFor="let pacient of filterPacients">
         <div class="d-flex d-row mx-1 mt-2">
             <div class="col-3 text-center">
                 <h5 class="text-text">{{ pacient.ids.pacientID }} </h5>
@@ -45,5 +45,9 @@
             </div>
             <a href="" class="text-center" style="position: relative; right: 40px; bottom: 4px;"><fa-icon [icon]="faArrowRight" class="text-center" style="font-size: 20px;"></fa-icon></a>
         </div>
+    </div>
+    <div class="alert alert-warning py-5 mt-5" role="alert" *ngIf="lengthArray == 00;">
+        <div class="text-text text-center">
+            <h3>Sem pacientes cadastrados no momento.</h3>
     </div>
 </div>
