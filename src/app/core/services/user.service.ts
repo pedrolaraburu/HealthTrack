@@ -2,10 +2,10 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { Subject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
-import { UserInterface } from "../models/user.interface";
+import { UserInterface } from "../../models/user.interface";
 import { AuthService } from "./auth.service";
 import { Router } from "@angular/router";
-import { registerIdInterface } from "../models/registerIdentification-interface";
+import { registerIdInterface } from "../../models/registerIdentification-interface";
 @Injectable({
     providedIn: "root",
 })

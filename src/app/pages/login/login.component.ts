@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { UserService } from "src/app/services/user.service";
+import { UserService } from "src/app/core/services/user.service";
 import { Router } from "@angular/router";
 import {
     FormControl,
@@ -9,7 +9,7 @@ import {
     NgForm,
 } from "@angular/forms";
 
-import { AuthService } from "src/app/services/auth.service";
+import { AuthService } from "src/app/core/services/auth.service";
 import { Token } from "@angular/compiler";
 @Component({
     selector: "app-login",

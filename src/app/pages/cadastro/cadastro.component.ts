@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit } from "@angular/core";
 import { Output } from "@angular/core";
 import { UserInterface } from "src/app/models/user.interface";
-import { UserService } from "src/app/services/user.service";
+import { UserService } from "src/app/core/services/user.service";
 import {
     FormGroup,
     FormControl,

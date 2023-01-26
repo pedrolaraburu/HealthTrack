@@ -11,10 +11,10 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
-import { UserService } from './services/user.service';
+import { UserService } from './core/services/user.service';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ModalComponent } from './components/modal/modal.component';
-import { AuthService } from './services/auth.service';
+import { AuthService } from './core/services/auth.service';
 import { AuthGuardGuard } from './core/guards/auth-guard.guard';
 import { NavbarDashboardComponent } from './components/navbar-dashboard/navbar-dashboard.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -25,7 +25,7 @@ import { ConvenioInfoComponent } from './forms/convenio-info/convenio-info.compo
 import { AdressInfoComponent } from './forms/adress-info/adress-info.component';
 import { ExtraInfoComponent } from './forms/extra-info/extra-info.component';
 import { ProntuarioComponent } from './pages/prontuario/prontuario.component';
-import { SearchPipePipe } from './pipes/search-pipe.pipe';
+import { SearchPipePipe } from './core/pipes/search-pipe.pipe';
 
 @NgModule({
   declarations: [

@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { FaIconLibrary } from "@fortawesome/angular-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
-import { UserService } from "src/app/services/user.service";
+import { UserService } from "src/app/core/services/user.service";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { registerIdInterface } from "src/app/models/registerIdentification-interface";

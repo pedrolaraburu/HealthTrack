@@ -15,7 +15,7 @@ import {
     Validators,
     FormBuilder,
 } from "@angular/forms";
-import { UserService } from "src/app/services/user.service";
+import { UserService } from "src/app/core/services/user.service";
 import { registerIdInterface } from "src/app/models/registerIdentification-interface";
 
 @Component({
