@@ -1,0 +1,49 @@
+<app-sidenav></app-sidenav>
+<app-navbar-dashboard>
+    <span class="navbar-text text-light" href="#" id="statistics">Listagem de prontuários</span>
+    <div class="d-flex ms-auto mt-2">
+        <span class="navbar-text">
+            <a class="text-light"><fa-icon [icon]="faUser"></fa-icon></a>
+            {{ loggedinUser.name }} {{ loggedinUser.lastName }}
+        </span>
+    </div>
+</app-navbar-dashboard>
+<div class="container">
+    <h2 class="text-text mt-3">Utilize a barra de pesquisa para buscar</h2>
+    <div class="d-flex flex-row">
+        <div class="input-group input-group-lg col-md-4">
+            <span class="input-group-text" id="inputGroup-sizing-lg"><fa-icon [icon]="faMagnifyingGlass"></fa-icon>
+            </span>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-lg" placeholder="Digite o nome do paciente">
+        </div>
+        <button class="btn btn-primary btn-lg mx-3 col-md-2">Buscar</button>
+    </div>
+    <div class="mt-5">
+        <div class="d-flex d-row mx-1">
+            <div class="col-4 text-center">
+                <h2 class="text-text">Registro</h2>
+            </div>
+            <div class="col-6 text-center">
+                <h2 class="text-text">Nome do Paciente</h2>
+            </div>
+            <div class="col-5 text-center">
+                <h2 class="text-text">Convênio</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid py-3 rounded-3 mt-3" style="background-color: #ececec; width: 95rem;" *ngFor="let pacient of pacients">
+        <div class="d-flex d-row mx-1 mt-2">
+            <div class="col-3 text-center">
+                <h5 class="text-text">{{ pacient.ids.pacientID }} </h5>
+            </div>
+            <div class="col-6 text-center">
+                <h5 class="text-text">{{ pacient.basicInfo.fullName }}</h5>
+            </div>
+            <div class="col-3 text-center">
+                <h5 class="text-text" style="position: relative; left: 26px;">{{ pacient.convenioInfo.nameConvenio }}</h5>
+            </div>
+            <a href="" class="text-center" style="position: relative; right: 40px; bottom: 4px;"><fa-icon [icon]="faArrowRight" class="text-center" style="font-size: 20px;"></fa-icon></a>
+        </div>
+    </div>
+</div>

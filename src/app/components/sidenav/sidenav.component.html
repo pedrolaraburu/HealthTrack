@@ -6,14 +6,14 @@
     <ul class="navbar-nav d-flex flex-column mt-3 w-100">
         <span class="navbar-text pl-4 mx-3">Geral</span>
         <li class="nav-item w-100">
-            <a href="" class="nav-link text-light pl-4 mx-3"><fa-icon [icon]="faHouse"></fa-icon> Início</a>
+            <a routerLink="/dashboard" class="nav-link text-light pl-4 mx-3"><fa-icon [icon]="faHouse"></fa-icon> Início</a>
             <a class="nav-link text-light pl-4 mx-3" (click)="logout()"><fa-icon [icon]="faRightFromBracket"></fa-icon>
                 Sair</a>
         </li>
         <span class="navbar-text mx-3">Pacientes</span>
         <li class="nav-item w-100">
             <a routerLink="add" class="nav-link text-light pl-4 mx-3"><fa-icon [icon]="faPlus"></fa-icon> Cadastrar</a>
-            <a href="" class="nav-link text-light pl-4 mx-3"> <fa-icon [icon]="faList"></fa-icon> Listar prontuário</a>
+            <a routerLink="prontuario" class="nav-link text-light pl-4 mx-3"> <fa-icon [icon]="faList"></fa-icon> Listar prontuário</a>
         </li>
         <span class="navbar-text pl-4 mx-3">Exames</span>
         <li class="nav-item w-100">
