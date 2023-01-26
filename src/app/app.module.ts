@@ -25,6 +25,7 @@ import { ConvenioInfoComponent } from './forms/convenio-info/convenio-info.compo
 import { AdressInfoComponent } from './forms/adress-info/adress-info.component';
 import { ExtraInfoComponent } from './forms/extra-info/extra-info.component';
 import { ProntuarioComponent } from './pages/prontuario/prontuario.component';
+import { SearchPipePipe } from './pipes/search-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { ProntuarioComponent } from './pages/prontuario/prontuario.component';
     AdressInfoComponent,
     ExtraInfoComponent,
     ProntuarioComponent,
-
+    SearchPipePipe
   ],
   imports: [
     BrowserModule,
@@ -55,7 +56,7 @@ import { ProntuarioComponent } from './pages/prontuario/prontuario.component';
     ReactiveFormsModule,
     FontAwesomeModule
   ],
-  providers: [UserService, AuthService, AuthGuardGuard],
+  providers: [UserService, AuthService, AuthGuardGuard, SearchPipePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

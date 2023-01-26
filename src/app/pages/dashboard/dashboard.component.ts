@@ -41,6 +41,7 @@ export class DashboardComponent implements OnInit {
     faCalendar = faCalendar;
     faBookMedical = faBookMedical;
     faMagnifyingGlass = faMagnifyingGlass;
+    searchText : string;
     ngOnInit(): void {
         this.loggedIn();
         this.getPacientsData();

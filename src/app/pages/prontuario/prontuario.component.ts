@@ -19,6 +19,7 @@ export class ProntuarioComponent implements OnInit {
     faUser = faUserCircle;
     faMagnifyingGlass = faMagnifyingGlass;
     faArrowRight = faArrowRight;
+    searchText: string;
     constructor(
         private router: Router,
         library: FaIconLibrary,
