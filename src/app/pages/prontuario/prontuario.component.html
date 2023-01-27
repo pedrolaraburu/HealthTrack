@@ -15,39 +15,31 @@
             <span class="input-group-text" id="inputGroup-sizing-lg"><fa-icon [icon]="faMagnifyingGlass"></fa-icon>
             </span>
             <input type="text" class="form-control" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-lg" placeholder="Digite o nome do paciente" [(ngModel)]="searchText">
+                aria-describedby="inputGroup-sizing-lg" placeholder="Digite o nome do paciente"
+                [(ngModel)]="searchText">
         </div>
         <button class="btn btn-primary btn-lg mx-3 col-md-2">Buscar</button>
     </div>
-    <div class="mt-5">
-        <div class="d-flex d-row mx-1">
-            <div class="col-4 text-center">
-                <h2 class="text-text">Registro</h2>
-            </div>
-            <div class="col-6 text-center">
-                <h2 class="text-text">Nome do Paciente</h2>
-            </div>
-            <div class="col-5 text-center">
-                <h2 class="text-text">Convênio</h2>
-            </div>
-        </div>
+    <div class="text-center mt-3">
+        <table class="table table-light mx-2" style="width: 95rem;" *ngFor="let pacient of filterPacients | searchPipe: searchText">
+            <tbody>
+                <tr class="text-center">
+                    <th>Registro</th>
+                    <th>Nome do Paciente</th>
+                    <th>Convênio</th>
+                    <th>Exibir</th>
+                </tr>
+                <tr class="text-center">
+                    <td>{{ pacient.ids.pacientID }}</td>
+                    <td>{{ pacient.basicInfo.fullName }}</td>
+                    <td>{{ pacient.convenioInfo.nameConvenio }}</td>
+                    <td><a href=""><fa-icon [icon]="faArrowRight" style="font-size: 20px;"></fa-icon></a></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <div class="container-fluid py-3 rounded-3 mt-3" style="background-color: #ececec; width: 95rem;" *ngFor="let pacient of filterPacients | searchPipe: searchText">
-        <div class="d-flex d-row mx-1 mt-2">
-            <div class="col-3 text-center">
-                <h5 class="text-text">{{ pacient.ids.pacientID }} </h5>
-            </div>
-            <div class="col-6 text-center">
-                <h5 class="text-text">{{ pacient.basicInfo.fullName }}</h5>
-            </div>
-            <div class="col-3 text-center">
-                <h5 class="text-text" style="position: relative; left: 26px;">{{ pacient.convenioInfo.nameConvenio }}</h5>
-            </div>
-            <a href="" class="text-center" style="position: relative; right: 40px; bottom: 4px;"><fa-icon [icon]="faArrowRight" class="text-center" style="font-size: 20px;"></fa-icon></a>
-        </div>
-    </div>
-    <div class="alert alert-warning py-5 mt-5" role="alert" *ngIf="lengthArray == 00;">
+    <div class="alert alert-warning py-5 mt-5" style="width: 95rem;" role="alert" *ngIf="lengthArray == 00;">
         <div class="text-text text-center">
             <h3>Sem pacientes cadastrados no momento.</h3>
+        </div>
     </div>
-</div>

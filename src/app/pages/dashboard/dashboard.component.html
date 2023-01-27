@@ -10,7 +10,7 @@
 </app-navbar-dashboard>
 <div class="container">
     <h2 class="text-text mt-3">Estatísticas do sistema</h2>
-    <div class="row">
+    <div class="row ms-auto">
         <div class="col-md-4">
             <div class="h-100 p-5 text-black bg-light rounded-3 text-center">
                 <span style="font-size: 100px;"><fa-icon [icon]="faUser"></fa-icon> {{ lengthArray }}</span>
@@ -32,22 +32,20 @@
     </div>
     <h2 class="text-text mt-3">Informações Rápidas de Pacientes</h2>
     <div class="d-flex flex-row">
-        <div class="input-group input-group-lg">
+        <div class="input-group input-group-lg col-5">
             <span class="input-group-text" id="inputGroup-sizing-lg"><fa-icon [icon]="faMagnifyingGlass"></fa-icon>
             </span>
             <input type="text" class="form-control" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-lg" placeholder="Digite o nome do paciente" [(ngModel)]="searchText">
+                aria-describedby="inputGroup-sizing-lg" placeholder="Digite o nome do paciente"
+                [(ngModel)]="searchText">
         </div>
-        <button class="btn btn-primary btn-lg mx-3">Buscar</button>
+        <button class="btn btn-primary btn-lg mx-3 col-2">Buscar</button>
     </div>
     <div class="row">
-        <div class="alert alert-warning py-5 mt-5" role="alert" *ngIf="lengthArray == 00">
-            <div class="text-text text-center">
-                <h3>Sem pacientes cadastrados no momento.</h3>
-            </div>
-        </div>
+    </div>
+    <div class="row ms-auto">
         <div class="col-md-4 mt-4" *ngFor="let pacient of filterPacients| searchPipe: searchText">
-            <div class="h-100 p-3 text-black bg-light rounded-3 text-center">
+            <div class="h-100 p-3 mx-0 text-black bg-light rounded-3 text-center">
                 <span style="font-size: 100px;"><fa-icon [icon]="faUser"></fa-icon></span>
                 <p class="text-text text-black">{{ pacient.basicInfo.fullName }}</p>
                 <p class="text-text">{{ pacient.basicInfo.birthDate }}</p>
@@ -57,3 +55,8 @@
             </div>
         </div>
     </div>
+    <div class="alert alert-warning py-5 mt-5" style="width: 95rem;" role="alert" *ngIf="lengthArray == 00">
+        <div class="text-text text-center">
+            <h3>Sem pacientes cadastrados no momento.</h3>
+        </div>
+</div>
