@@ -19,7 +19,7 @@ export interface registerIdInterface {
         nCarteira: string, 
         expirationDate: Date
     }, 
-    adressInfo: {
+    addressInfo: {
         cep: string, 
         cidade: string, 
         estado: string, 

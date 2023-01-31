@@ -3,7 +3,7 @@
         <div class="d-flex flex-row gap-3 mt-3 mb-3">
             <div class="form-floating col-md-5">
                 <input type="text" class="form-control" id="cepCadastro" aria-describedby="cepHelp" placeholder="CEP"
-                    name="cepCadastro" formControlName="cep">
+                    name="cepCadastro" formControlName="cep" #cep (blur)="getCepByCode(cep.value)">
                 <label for="cepCadastro" style="color:grey">CEP</label>
             </div>
             <div class="form-floating col-md-5">

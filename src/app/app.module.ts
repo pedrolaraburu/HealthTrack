@@ -22,7 +22,7 @@ import { CadastroPacienteComponent } from './pages/cadastro-paciente/cadastro-pa
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { BasicInfoComponent } from './forms/basic-info/basic-info.component';
 import { ConvenioInfoComponent } from './forms/convenio-info/convenio-info.component';
-import { AdressInfoComponent } from './forms/adress-info/adress-info.component';
+import { AddressInfoComponent } from './forms/adress-info/adress-info.component';
 import { ExtraInfoComponent } from './forms/extra-info/extra-info.component';
 import { ProntuarioComponent } from './pages/prontuario/prontuario.component';
 import { SearchPipePipe } from './core/pipes/search-pipe.pipe';
@@ -43,7 +43,7 @@ import { SearchPipePipe } from './core/pipes/search-pipe.pipe';
     SidenavComponent,
     BasicInfoComponent,
     ConvenioInfoComponent,
-    AdressInfoComponent,
+    AddressInfoComponent,
     ExtraInfoComponent,
     ProntuarioComponent,
     SearchPipePipe
