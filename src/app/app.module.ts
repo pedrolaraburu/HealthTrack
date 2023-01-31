@@ -26,6 +26,7 @@ import { AddressInfoComponent } from './forms/adress-info/adress-info.component'
 import { ExtraInfoComponent } from './forms/extra-info/extra-info.component';
 import { ProntuarioComponent } from './pages/prontuario/prontuario.component';
 import { SearchPipePipe } from './core/pipes/search-pipe.pipe';
+import { CadastroConsultaComponent } from './pages/cadastro-consulta/cadastro-consulta.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { SearchPipePipe } from './core/pipes/search-pipe.pipe';
     AddressInfoComponent,
     ExtraInfoComponent,
     ProntuarioComponent,
-    SearchPipePipe
+    SearchPipePipe,
+    CadastroConsultaComponent
   ],
   imports: [
     BrowserModule,
