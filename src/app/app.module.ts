@@ -27,6 +27,7 @@ import { ExtraInfoComponent } from './forms/extra-info/extra-info.component';
 import { ProntuarioComponent } from './pages/prontuario/prontuario.component';
 import { SearchPipePipe } from './core/pipes/search-pipe.pipe';
 import { CadastroConsultaComponent } from './pages/cadastro-consulta/cadastro-consulta.component';
+import { CadastroExameComponent } from './pages/cadastro-exame/cadastro-exame.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { CadastroConsultaComponent } from './pages/cadastro-consulta/cadastro-co
     ExtraInfoComponent,
     ProntuarioComponent,
     SearchPipePipe,
-    CadastroConsultaComponent
+    CadastroConsultaComponent,
+    CadastroExameComponent
   ],
   imports: [
     BrowserModule,
