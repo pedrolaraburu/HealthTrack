@@ -16,6 +16,9 @@ export class CadastroConsultaComponent implements OnInit {
     pacients: any = {};
     filterPacients: any = {};
     lengthArray: any;
+    selectedOption: string = "null";
+    msgConsulta: string = "[Nome Paciente]";
+    fillFormSelected: any = {};
     constructor(private _usersService: UserService) {}
 
     ngOnInit(): void {
@@ -45,10 +48,14 @@ export class CadastroConsultaComponent implements OnInit {
         return this.lengthArray, this.filterPacients;
     }
 
-    handleInput(){
-      // let args = this.filterPacients;
-      // return this.searchText.filter((item: any) => {
-      //   return JSON.stringify(item).toLowerCase().includes(args);
-      // })
+    handleInput() {
+        console.log(this.selectedOption);
+        this.fillFormSelected = this.filterPacients.filter((e: any) => {
+            return e.ids.pacientID == this.selectedOption;
+        });
+        console.log(this.fillFormSelected);
+        this.fillFormSelected.forEach((element: any) => {
+            this.msgConsulta = element.basicInfo.fullName;
+        });
     }
 }
