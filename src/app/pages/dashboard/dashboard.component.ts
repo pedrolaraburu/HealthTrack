@@ -33,6 +33,10 @@ export class DashboardComponent implements OnInit {
     filterPacients: any = {};
     loggedinUser: any = {};
     lengthArray: any;
+    lengthArrayE: any;
+    lengthArrayC: any;
+    appointments: any = {};
+    exams: any = {};
     faPlus = faPlus;
     faList = faList;
     faHouse = faHouse;
@@ -46,6 +50,8 @@ export class DashboardComponent implements OnInit {
         this.loggedIn();
         this.getPacientsData();
         this.doFilterPacients();
+        this.getAppointments();
+        this.getMedicalExams();
     }
 
     loggedIn() {
@@ -72,5 +78,24 @@ export class DashboardComponent implements OnInit {
 		console.log(this.filterPacients);
 		console.log(this.lengthArray);
         return this.lengthArray, this.filterPacients;
+    }
+    getAppointments() {
+        this.appointments = JSON.parse(localStorage.getItem("Appointments") as string);
+        // console.log(this.pacients);
+        this.appointments = this.appointments.filter((e: any) => {
+            return e.ids.medicID == this.loggedinUser.id;
+        });
+        this.lengthArrayC = Object.keys(this.appointments).length;
+        return this.lengthArrayC, this.appointments;
+    }
+
+    getMedicalExams() {
+        this.exams = JSON.parse(localStorage.getItem("Exams") as string);
+        // console.log(this.exams);
+        this.exams = this.exams.filter((e: any) => {
+            return e.ids.medicID == this.loggedinUser.id;
+        });
+        this.lengthArrayE = Object.keys(this.exams).length;
+        return this.lengthArrayE, this.exams;
     }
 }
