@@ -43,4 +43,16 @@ export class UserService {
         }
         localStorage.setItem('Pacients', JSON.stringify(pacients));
     }
+
+    addExam(userE: any) {
+        console.log(userE);
+        let examPacients = [];
+        if(localStorage.getItem('Exams')) {
+            examPacients = JSON.parse(localStorage.getItem('Exams') as string);
+            examPacients = [...examPacients, userE];
+        } else {
+            examPacients = [userE];
+        }
+        localStorage.setItem('Exams', JSON.stringify(examPacients));
+    }
 }
