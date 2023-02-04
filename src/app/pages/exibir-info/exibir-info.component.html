@@ -1,0 +1,57 @@
+<app-sidenav></app-sidenav>
+<app-navbar-dashboard>
+    <span class="navbar-text text-light" href="#" id="statistics">Prontuário do paciente</span>
+    <div class="d-flex ms-auto mt-2">
+        <span class="navbar-text">
+            <a class="text-light"><fa-icon [icon]="faUser"></fa-icon></a>
+            {{ loggedinUser.name }} {{ loggedinUser.lastName }}
+        </span>
+    </div>
+</app-navbar-dashboard>
+<div class="container">
+    <div class="d-flex flex-column" *ngFor="let pacient of filterPacientbyID">
+        <h2 class="text-text mt-3">Paciente {{ this.pacient.basicInfo.fullName }}</h2>
+        <h3 class="text-text">Convenio: {{ this.pacient.convenioInfo.nameConvenio }}</h3>
+        <h3 class="text-text">Alergias: {{ this.pacient.extraInfo.listOfAlergies }}</h3>
+    </div>
+    <div class="col-12 p-5 mt-3 mb-5 bg-light rounded-3" style="width: 120%;" *ngFor="let appointment of appointments">
+        <div class="d-flex flex-row justify-content-end ms-auto gap-2">
+            <button class="btn btn-success"><fa-icon [icon]="faEdit"></fa-icon> Editar</button>
+        </div>
+        <h3 class="text-text text-black">Consulta</h3>
+        <h4 class="text-text text-black">Motivo da consulta: {{this.appointment.appointmentInfo.motivoAppointment }}
+        </h4>
+        <h4 class="text-text text-black">Data da consulta: {{this.appointment.appointmentInfo.dataAppointment | date }}
+        </h4>
+        <h4 class="text-text text-black">Hora da consulta: {{this.appointment.appointmentInfo.horaAppointment }}</h4>
+        <h4 class="text-text text-black">Descrição da consulta: {{this.appointment.appointmentInfo.descAppointment }}
+        </h4>
+        <h4 class="text-text text-black">Medicação receitada: {{this.appointment.appointmentInfo.medicineAppointment }}
+        </h4>
+        <h4 class="text-text text-black">Dosagem: {{this.appointment.appointmentInfo.dosageAppointment }}</h4>
+        <!-- <pre>
+            {{this.appointments | json }}
+        </pre> -->
+    </div>
+    <div class="col-12 p-5 mt-3 mb-5 bg-light rounded-3" style="width: 120%;" *ngFor="let exam of exams">
+        <div class="d-flex flex-row justify-content-end ms-auto gap-2">
+            <button class="btn btn-success"><fa-icon [icon]="faEdit"></fa-icon> Editar</button>
+        </div>
+        <h3 class="text-text text-black">Exame</h3>
+        <h4 class="text-text text-black">Nome do exame: {{this.exam.examInfo.nomeExame}}</h4>
+        <h4 class="text-text text-black">Data do exame: {{this.exam.examInfo.dataExame | date}}</h4>
+        <h4 class="text-text text-black">Hora do exame: {{this.exam.examInfo.horaExame}}</h4>
+        <h4 class="text-text text-black">Tipo do exame: {{this.exam.examInfo.tipoExame}}</h4>
+        <h4 class="text-text text-black">Laboratório do exame: {{this.exam.examInfo.laboratorioExame}}</h4>
+        <h4 class="text-text text-black">Nome do exame: {{this.exam.examInfo.urlDocExame}}</h4>
+        <h4 class="text-text text-black">Resultado: {{this.exam.examInfo.resultadoExame}}</h4>
+        <!-- <pre>
+            {{this.exams | json }}
+        </pre> -->
+    </div>
+    <div class="alert alert-warning py-5 mt-5" style="width: 95rem;" role="alert"
+        *ngIf="lengthArrayC == 00 && lengthArrayE == 00;">
+        <div class="text-text text-center">
+            <h3>Sem consultas ou exames cadastrados no momento.</h3>
+        </div>
+    </div>

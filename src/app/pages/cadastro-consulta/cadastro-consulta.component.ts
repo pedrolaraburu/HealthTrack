@@ -77,7 +77,7 @@ export class CadastroConsultaComponent implements OnInit {
 
     createFormAppointment() {
         this.formAppointment = this.fb.group({
-            motivoAppointment: new FormControl(null, [Validators.minLength(8), Validators.maxLength(8), Validators.required]),
+            motivoAppointment: new FormControl(null, [Validators.minLength(8), Validators.maxLength(64), Validators.required]),
             dataAppointment: new FormControl(null, Validators.required),
             horaAppointment: new FormControl(null, Validators.required),
             descAppointment: new FormControl(null, [Validators.minLength(16), Validators.maxLength(1024), Validators.required]),
@@ -102,6 +102,7 @@ export class CadastroConsultaComponent implements OnInit {
             this._usersService.addAppointment(this.userDataAppointment());
             this._usersService.emitChange(true);
             this.formAppointment.reset();
+            this.selectedOption = "null";
         }
     }
 

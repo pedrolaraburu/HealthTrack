@@ -33,7 +33,7 @@
                     <td>{{ pacient.ids.pacientID }}</td>
                     <td>{{ pacient.basicInfo.fullName }}</td>
                     <td>{{ pacient.convenioInfo.nameConvenio }}</td>
-                    <td><a href=""><fa-icon [icon]="faArrowRight" style="font-size: 20px;"></fa-icon></a></td>
+                    <td><a [routerLink]="['/dashboard/exibir', pacient.ids.pacientID]"><fa-icon [icon]="faArrowRight" style="font-size: 20px;"></fa-icon></a></td>
                 </tr>
             </tbody>
         </table>
