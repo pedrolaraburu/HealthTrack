@@ -1,0 +1,18 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    *ngIf="showModal">
+    <div class="modal-dialog">
+        <div class="modal-content modal-lg p-4">
+            <div class="modal-header">
+                <h5 class="modal-title mt-2 mb-2" id="exampleModalLabel">Exame cadastrado!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="showModal=false"></button>
+            </div>
+            <div class="modal-body text-center">
+                <i class="bi bi-check2-circle" style="color: green; font-size: 3rem;"></i>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-success" (click)="showModal=false">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>

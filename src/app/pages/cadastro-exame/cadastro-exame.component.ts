@@ -100,9 +100,14 @@ export class CadastroExameComponent implements OnInit {
         // console.log(this.userDataExam());
 		if(this.formularioExame.valid) {
 			this._usersService.addExam(this.userDataExam());
-			this.formularioExame.reset;
+			this._usersService.emitChange(true);
+			this.formularioExame.reset();
 		}
     }
+
+	testandoModal(){
+		this._usersService.emitChange(true);
+	}
 
     //Getters formulario
     get nomeExame() {

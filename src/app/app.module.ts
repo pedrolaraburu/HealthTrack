@@ -28,6 +28,7 @@ import { ProntuarioComponent } from './pages/prontuario/prontuario.component';
 import { SearchPipePipe } from './core/pipes/search-pipe.pipe';
 import { CadastroConsultaComponent } from './pages/cadastro-consulta/cadastro-consulta.component';
 import { CadastroExameComponent } from './pages/cadastro-exame/cadastro-exame.component';
+import { ModalREComponent } from './core/shared/modal-re/modal-re.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { CadastroExameComponent } from './pages/cadastro-exame/cadastro-exame.co
     ProntuarioComponent,
     SearchPipePipe,
     CadastroConsultaComponent,
-    CadastroExameComponent
+    CadastroExameComponent,
+    ModalREComponent
   ],
   imports: [
     BrowserModule,
