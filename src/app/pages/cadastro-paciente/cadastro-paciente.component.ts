@@ -65,7 +65,7 @@ export class CadastroPacienteComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.loggedIn();
         this.createFormIdentificacao();
-        this.handleSwitch();
+        // this.handleSwitch();
     }
 
     ngOnDestroy(): void {
@@ -73,6 +73,7 @@ export class CadastroPacienteComponent implements OnInit, OnDestroy {
     }
 
     userDataId(): registerIdInterface {
+        console.log(this.cidade.value)
         return (this.userR = {
             ids: {
                 medicID: this.idMedicoLogado,
@@ -170,17 +171,18 @@ export class CadastroPacienteComponent implements OnInit, OnDestroy {
         console.log(this.userDataId());
         if (this.formularioCadastro.valid) {
             this._usersService.addPacient(this.userDataId());
-            this.formularioCadastro.reset;
+            this._usersService.emitChange(true);
+            this.formularioCadastro.reset();
         }
     }
     fillForm() {
         this.formularioCadastro.patchValue({
             addressInfo: {
-                logradouro: this.cepPaciente[1],
-                bairroAdress: this.cepPaciente[3],
-                complementoAdress: this.cepPaciente[2],
                 cidade: this.cepPaciente[4],
                 estado: this.cepPaciente[5],
+                logradouro: this.cepPaciente[1],
+                complementoAdress: this.cepPaciente[2],
+                bairroAdress: this.cepPaciente[3],
             }
         });
     }
@@ -266,7 +268,7 @@ export class CadastroPacienteComponent implements OnInit, OnDestroy {
     }
     get cidade() {
         return this.formularioCadastro
-            .get("adressInfo")
+            .get("addressInfo")
             ?.get("cidade") as FormControl;
     }
     get estado() {

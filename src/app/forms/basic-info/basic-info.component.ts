@@ -9,6 +9,8 @@ import { Input } from '@angular/core';
 export class BasicInfoComponent implements OnInit {
   form: FormGroup;
   @Input() inputFormGroupName: string;
+  selectedOptionG: string = 'null';
+  selectedOptionC: string = 'null';
   constructor(private rootFormGroup: FormGroupDirective){}
 
   ngOnInit(): void {

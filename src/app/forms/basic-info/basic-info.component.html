@@ -8,8 +8,8 @@
                 <label for="nomePaciente" style="color:grey">Nome Completo</label>
             </div>
             <select class="form-select" id='selectCadastro' aria-label="Select genero paciente"
-                formControlName="gender">
-                <option style="color:grey" selected disabled>Gênero</option>
+                formControlName="gender" [(ngModel)]="selectedOptionG">
+                <option disabled [value]="null" style="color:grey">Gênero</option>
                 <option value="1">Homem</option>
                 <option value="2">Mulher</option>
             </select>
@@ -31,8 +31,8 @@
                 <label for="cpfCadastro" style="color:grey">RG</label>
             </div>
             <select class="form-select" id='selectEstadoCivil' aria-label="Select Estado Civil paciente"
-                formControlName="civilState">
-                <option style="color:grey" selected disabled>Estado Civil</option>
+                formControlName="civilState" [(ngModel)]="selectedOptionC">
+                <option style="color:grey" disabled [value]="null">Estado Civil</option>
                 <option value="1">Solteiro</option>
                 <option value="2">Casado</option>
                 <option value="3">Separado</option>
