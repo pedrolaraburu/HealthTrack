@@ -33,6 +33,7 @@ export class CadastroPacienteEditComponent implements OnInit {
     fillFormCadastro: any = {};
     pacients: any = {};
     filterPacients: any = {};
+    switchValue: boolean = true;
     constructor(
         private router: Router,
         library: FaIconLibrary,
@@ -64,16 +65,20 @@ export class CadastroPacienteEditComponent implements OnInit {
     faCalendar = faCalendar;
     faBookMedical = faBookMedical;
     faMagnifyingGlass = faMagnifyingGlass;
-	save: any = [];
-	showModal: boolean;
+    save: any = [];
+    showModal: boolean;
+    formCheckbox: FormGroup;
     ngOnInit(): void {
         this.loggedIn();
         this.createFormIdentificacao();
+        this.createCheckboxForm();
         // this.handleSwitch();
-		this.getPacientsData();
-		this.doFilterPacients();
-		this.filterPacientData();
-		this.fillFormWithFilteredData();
+        this.getPacientsData();
+        this.doFilterPacients();
+        this.filterPacientData();
+        this.fillFormWithFilteredData();
+        
+        // this.formularioCadastro.disable();
     }
 
     ngOnDestroy(): void {}
@@ -185,15 +190,25 @@ export class CadastroPacienteEditComponent implements OnInit {
         });
     }
 
+    createCheckboxForm() {
+        this.formCheckbox = this.fb.group({
+            checkbox: new FormControl(true, Validators.pattern('true')),
+        })
+    }
+
     onSubmit(): void {
-        // console.log(this.formularioCadastro.value);
-        // console.log(this.userDataId());
         if (this.formularioCadastro.valid) {
             this._usersService.updatePacient(this.userDataId());
             this._usersService.emitChange(true);
             // this.formularioCadastro.reset();
         }
     }
+
+    onDeletePacient(): void {
+        this._usersService.deletePacient(this.userDataId());
+        this.showModal = true;
+    }
+
     fillForm() {
         this.formularioCadastro.patchValue({
             addressInfo: {
@@ -206,13 +221,11 @@ export class CadastroPacienteEditComponent implements OnInit {
         });
     }
     handleSwitch() {
-        // this.valorSwitch = !this.valorSwitch;
-        // console.log(this.valorSwitch)
-        // if (this.valorSwitch = true) {
-        //     this.formularioCadastro.get('basicInfo')?.enable()
-        // } else if(this.valorSwitch = false) {
-        //     this.formularioCadastro.get('basicInfo')?.disable()
-        // }
+        if (this.checkbox.value) {
+            this.formularioCadastro.disable();
+        } else {
+            this.formularioCadastro.enable();
+        }
     }
 
     filterPacientData() {
@@ -224,16 +237,16 @@ export class CadastroPacienteEditComponent implements OnInit {
         console.log(this.fillFormCadastro);
     }
 
-	fillFormWithFilteredData() {
-		this.fillFormCadastro.forEach((element: any) => {
-			this.save.push(element.basicInfo as string);
-			this.save.push(element.addressInfo as string);
-			this.save.push(element.convenioInfo as string);
-			this.save.push(element.extraInfo as string);
-			this.save.push(element.ids as string);
-		});
+    fillFormWithFilteredData() {
+        this.fillFormCadastro.forEach((element: any) => {
+            this.save.push(element.basicInfo as string);
+            this.save.push(element.addressInfo as string);
+            this.save.push(element.convenioInfo as string);
+            this.save.push(element.extraInfo as string);
+            this.save.push(element.ids as string);
+        });
         this.formularioCadastro.patchValue({
-			basicInfo: {
+            basicInfo: {
                 fullName: this.save[0].fullName,
                 gender: this.save[0].gender,
                 birthDate: this.save[0].birthDate,
@@ -264,11 +277,12 @@ export class CadastroPacienteEditComponent implements OnInit {
                 listOfAlergies: this.save[3].listOfAlergies,
             },
         });
-	}
+    }
 
-	navigateDashboard() {
-		this.router.navigate(['/dashboard']);
-	}
+    navigateDashboard() {
+        this.router.navigate(["/dashboard"]);
+        this.showModal = false;
+    }
 
     // Getters do formulário de identificação
     //Basic info
@@ -387,4 +401,11 @@ export class CadastroPacienteEditComponent implements OnInit {
             .get("extraInfo")
             ?.get("listOfAlergies") as FormControl;
     }
+
+    // Getter checkbox
+
+    get checkbox() {
+        return this.formCheckbox.get('checkbox') as FormControl;
+    }
+
 }

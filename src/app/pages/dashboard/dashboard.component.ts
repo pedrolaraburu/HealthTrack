@@ -32,9 +32,9 @@ export class DashboardComponent implements OnInit {
     pacients: any = {};
     filterPacients: any = {};
     loggedinUser: any = {};
-    lengthArray: any;
-    lengthArrayE: any;
-    lengthArrayC: any;
+    lengthArray: any = 0;
+    lengthArrayE: any = 0;
+    lengthArrayC: any = 0;
     appointments: any = {};
     exams: any = {};
     faPlus = faPlus;
@@ -81,12 +81,14 @@ export class DashboardComponent implements OnInit {
     }
     getAppointments() {
         this.appointments = JSON.parse(localStorage.getItem("Appointments") as string);
-        // console.log(this.pacients);
-        this.appointments = this.appointments.filter((e: any) => {
-            return e.ids.medicID == this.loggedinUser.id;
-        });
-        this.lengthArrayC = Object.keys(this.appointments).length;
-        return this.lengthArrayC, this.appointments;
+        if (this.appointments == null){
+        } else {
+            this.appointments = this.appointments.filter((e: any) => {
+                return e.ids.medicID == this.loggedinUser.id;
+            });
+            this.lengthArrayC = Object.keys(this.appointments).length;
+            return this.lengthArrayC, this.appointments;
+        }
     }
 
     getMedicalExams() {

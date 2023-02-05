@@ -75,12 +75,16 @@ export class ExibirInfoComponent implements OnInit {
 
     getAppointments() {
         this.appointments = JSON.parse(localStorage.getItem("Appointments") as string);
-        // console.log(this.pacients);
-        this.appointments = this.appointments.filter((e: any) => {
-            return e.ids.pacientID == this.href;
-        });
-        this.lengthArrayC = Object.keys(this.appointments).length;
-        return this.lengthArrayC, this.appointments;
+        if (this.appointments == null) {
+            return this.lengthArrayC = 0;
+        } else {
+            // console.log(this.pacients);
+            this.appointments = this.appointments.filter((e: any) => {
+                return e.ids.pacientID == this.href;
+            });
+            this.lengthArrayC = Object.keys(this.appointments).length;
+            return this.lengthArrayC, this.appointments;
+        }
     }
 
     getMedicalExams() {

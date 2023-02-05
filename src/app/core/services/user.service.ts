@@ -54,7 +54,6 @@ export class UserService {
     }
 
     addAppointment(userA: any) {
-        console.log(userA);
         let appointmentsPacients = [];
         if (localStorage.getItem("Appointments")) {
             appointmentsPacients = JSON.parse(
@@ -141,5 +140,21 @@ export class UserService {
             examsPacients.splice(index, 1);
         }
         localStorage.setItem("Exams", JSON.stringify(examsPacients));
+    }
+
+    deletePacient(userP: any) {
+        let pacients = [];
+        if (localStorage.getItem("Pacients")) {
+            pacients = JSON.parse(localStorage.getItem("Pacients") as string);
+            let index = pacients.findIndex(
+                (obj: any) => obj.ids.pacientID == userP.ids.pacientID
+            );
+            pacients.splice(index, 1);
+        }
+        console.log(pacients);
+        localStorage.setItem(
+            "Pacients",
+            JSON.stringify(pacients)
+        );
     }
 }
