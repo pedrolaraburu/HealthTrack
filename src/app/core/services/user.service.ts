@@ -157,4 +157,26 @@ export class UserService {
             JSON.stringify(pacients)
         );
     }
+
+    checkAppointments(userE: any){
+        let appointmentsPacients = [];
+        if (localStorage.getItem("Appointments")) {
+            appointmentsPacients = JSON.parse(localStorage.getItem("Appointments") as string);
+            let index = appointmentsPacients.findIndex(
+                (obj: any) => obj.ids.appointmentID === userE.ids.appointmentID
+            );
+            return index;
+        }
+    }
+
+    checkExams(userE: any){
+        let examsPacients = [];
+        if (localStorage.getItem("Exams")) {
+            examsPacients = JSON.parse(localStorage.getItem("Exams") as string);
+            let index = examsPacients.findIndex(
+                (obj: any) => obj.ids.examID === userE.ids.examID
+            );
+            return index;
+        }
+    }
 }

@@ -66,6 +66,7 @@ export class CadastroPacienteEditComponent implements OnInit {
     faMagnifyingGlass = faMagnifyingGlass;
     save: any = [];
     showModal: boolean;
+    showModalDelete: boolean;
     formCheckbox: FormGroup;
     ngOnInit(): void {
         this.loggedIn();
@@ -81,7 +82,6 @@ export class CadastroPacienteEditComponent implements OnInit {
     ngOnDestroy(): void {}
 
     userDataId(): registerIdInterface {
-        console.log(this.cidade.value);
         return (this.userR = {
             ids: {
                 medicID: this.idMedicoLogado,
@@ -140,7 +140,6 @@ export class CadastroPacienteEditComponent implements OnInit {
         this.filterPacients = this.pacients.filter((e: any) => {
             return e.ids.medicID === this.loggedinUser.id;
         });
-        // console.log(this.filterPacients);
         return this.filterPacients;
     }
 
@@ -198,8 +197,15 @@ export class CadastroPacienteEditComponent implements OnInit {
     }
 
     onDeletePacient(): void {
-        this._usersService.deletePacient(this.userDataId());
-        this.showModal = true;
+        const indexA = this._usersService.checkAppointments(this.userDataId());
+        const indexE = this._usersService.checkExams(this.userDataId());
+        console.log(indexA, indexE)
+        if((indexA && indexE) != -1) {
+            this._usersService.deletePacient(this.userDataId());
+            this.showModal = true;
+        } else {
+            this.showModalDelete = true;
+        }
     }
 
     fillForm() {
@@ -216,11 +222,9 @@ export class CadastroPacienteEditComponent implements OnInit {
 
     filterPacientData() {
         this.href = this.router.url.slice(16, 20);
-        // console.log(this.href);
         this.fillFormCadastro = this.filterPacients.filter((e: any) => {
             return e.ids.pacientID == this.href;
         });
-        console.log(this.fillFormCadastro);
     }
 
     fillFormWithFilteredData() {
