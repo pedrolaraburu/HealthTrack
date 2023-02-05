@@ -31,6 +31,7 @@ export class CadastroExameEditComponent implements OnInit {
     exams: any = {};
     href: string;
     showModal: boolean;
+    formCheckbox: FormGroup;
     constructor(
         private _usersService: UserService,
         private fb: FormBuilder,
@@ -42,6 +43,7 @@ export class CadastroExameEditComponent implements OnInit {
         this.getPacientsData();
         this.doFilterPacients();
         this.createFormExame();
+        this.createCheckboxForm();
         this.getNamePacient();
         this.getExams();
         this.fillForm();
@@ -209,5 +211,22 @@ export class CadastroExameEditComponent implements OnInit {
     }
     get resultadoExame() {
         return this.formularioExame.get("resultadoExame") as FormControl;
+    }
+
+    get checkbox() {
+        return this.formCheckbox.get("checkbox") as FormControl;
+    }
+
+    handleSwitch() {
+        if (this.checkbox.value) {
+            this.formularioExame.disable();
+        } else {
+            this.formularioExame.enable();
+        }
+    }
+    createCheckboxForm() {
+        this.formCheckbox = this.fb.group({
+            checkbox: new FormControl(true, Validators.pattern("true")),
+        });
     }
 }

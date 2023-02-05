@@ -28,6 +28,7 @@ export class CadastroConsultaComponent implements OnInit {
     fillFormSelected: any = {};
     formAppointment: FormGroup;
     userA: any = {};
+    formCheckbox: FormGroup;
     constructor(private _usersService: UserService, private fb: FormBuilder) {}
 
     ngOnInit(): void {
@@ -35,6 +36,7 @@ export class CadastroConsultaComponent implements OnInit {
         this.getPacientsData();
         this.doFilterPacients();
         this.createFormAppointment();
+        this.createCheckboxForm();
     }
 
     loggedIn() {
@@ -125,5 +127,22 @@ export class CadastroConsultaComponent implements OnInit {
     }
     get dosageAppointment() {
         return this.formAppointment.get("dosageAppointment") as FormControl;
+    }
+
+    get checkbox() {
+        return this.formCheckbox.get("checkbox") as FormControl;
+    }
+
+    handleSwitch() {
+        if (this.checkbox.value) {
+            this.formAppointment.disable();
+        } else {
+            this.formAppointment.enable();
+        }
+    }
+    createCheckboxForm() {
+        this.formCheckbox = this.fb.group({
+            checkbox: new FormControl(true, Validators.pattern("true")),
+        });
     }
 }

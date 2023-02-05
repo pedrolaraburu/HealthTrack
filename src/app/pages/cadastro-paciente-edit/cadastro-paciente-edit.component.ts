@@ -33,7 +33,6 @@ export class CadastroPacienteEditComponent implements OnInit {
     fillFormCadastro: any = {};
     pacients: any = {};
     filterPacients: any = {};
-    switchValue: boolean = true;
     constructor(
         private router: Router,
         library: FaIconLibrary,
@@ -72,13 +71,11 @@ export class CadastroPacienteEditComponent implements OnInit {
         this.loggedIn();
         this.createFormIdentificacao();
         this.createCheckboxForm();
-        // this.handleSwitch();
         this.getPacientsData();
         this.doFilterPacients();
         this.filterPacientData();
         this.fillFormWithFilteredData();
-        
-        // this.formularioCadastro.disable();
+
     }
 
     ngOnDestroy(): void {}
@@ -190,11 +187,7 @@ export class CadastroPacienteEditComponent implements OnInit {
         });
     }
 
-    createCheckboxForm() {
-        this.formCheckbox = this.fb.group({
-            checkbox: new FormControl(true, Validators.pattern('true')),
-        })
-    }
+
 
     onSubmit(): void {
         if (this.formularioCadastro.valid) {
@@ -219,13 +212,6 @@ export class CadastroPacienteEditComponent implements OnInit {
                 bairroAdress: this.cepPaciente[3],
             },
         });
-    }
-    handleSwitch() {
-        if (this.checkbox.value) {
-            this.formularioCadastro.disable();
-        } else {
-            this.formularioCadastro.enable();
-        }
     }
 
     filterPacientData() {
@@ -405,7 +391,19 @@ export class CadastroPacienteEditComponent implements OnInit {
     // Getter checkbox
 
     get checkbox() {
-        return this.formCheckbox.get('checkbox') as FormControl;
+        return this.formCheckbox.get("checkbox") as FormControl;
     }
 
+    handleSwitch() {
+        if (this.checkbox.value) {
+            this.formularioCadastro.disable();
+        } else {
+            this.formularioCadastro.enable();
+        }
+    }
+    createCheckboxForm() {
+        this.formCheckbox = this.fb.group({
+            checkbox: new FormControl(true, Validators.pattern("true")),
+        });
+    }
 }

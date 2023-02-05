@@ -24,6 +24,7 @@ export class CadastroExameComponent implements OnInit {
     fillFormSelected: any = {};
     msgExame: string = "[Nome Paciente]";
     formularioExame: FormGroup;
+    formCheckbox: FormGroup;
     userE: any = {};
     constructor(private _usersService: UserService, private fb: FormBuilder) {}
 
@@ -32,6 +33,7 @@ export class CadastroExameComponent implements OnInit {
         this.getPacientsData();
         this.doFilterPacients();
         this.createFormExame();
+        this.createCheckboxForm();
     }
 
     loggedIn() {
@@ -131,5 +133,22 @@ export class CadastroExameComponent implements OnInit {
     }
     get resultadoExame() {
         return this.formularioExame.get("resultadoExame") as FormControl;
+    }
+
+    get checkbox() {
+        return this.formCheckbox.get("checkbox") as FormControl;
+    }
+
+    handleSwitch() {
+        if (this.checkbox.value) {
+            this.formularioExame.disable();
+        } else {
+            this.formularioExame.enable();
+        }
+    }
+    createCheckboxForm() {
+        this.formCheckbox = this.fb.group({
+            checkbox: new FormControl(true, Validators.pattern("true")),
+        });
     }
 }

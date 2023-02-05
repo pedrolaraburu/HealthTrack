@@ -32,6 +32,7 @@ export class CadastroConsultaEditComponent implements OnInit {
     userA: any = {};
     href: string;
     showModal: boolean;
+    formCheckbox: FormGroup;
     constructor(
         private _usersService: UserService,
         private fb: FormBuilder,
@@ -43,6 +44,7 @@ export class CadastroConsultaEditComponent implements OnInit {
         this.getPacientsData();
         this.doFilterPacients();
         this.createFormAppointment();
+        this.createCheckboxForm();
         this.getNamePacient();
         this.getAppointments();
         this.fillForm();
@@ -194,5 +196,22 @@ export class CadastroConsultaEditComponent implements OnInit {
     }
     get dosageAppointment() {
         return this.formAppointment.get("dosageAppointment") as FormControl;
+    }
+
+    get checkbox() {
+        return this.formCheckbox.get("checkbox") as FormControl;
+    }
+
+    handleSwitch() {
+        if (this.checkbox.value) {
+            this.formAppointment.disable();
+        } else {
+            this.formAppointment.enable();
+        }
+    }
+    createCheckboxForm() {
+        this.formCheckbox = this.fb.group({
+            checkbox: new FormControl(true, Validators.pattern("true")),
+        });
     }
 }

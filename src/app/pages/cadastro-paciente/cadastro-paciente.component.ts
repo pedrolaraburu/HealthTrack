@@ -62,10 +62,11 @@ export class CadastroPacienteComponent implements OnInit, OnDestroy {
     faCalendar = faCalendar;
     faBookMedical = faBookMedical;
     faMagnifyingGlass = faMagnifyingGlass;
+    formCheckbox: FormGroup;
     ngOnInit(): void {
         this.loggedIn();
         this.createFormIdentificacao();
-        // this.handleSwitch();
+        this.createCheckboxForm();
     }
 
     ngOnDestroy(): void {
@@ -166,6 +167,7 @@ export class CadastroPacienteComponent implements OnInit, OnDestroy {
         });
     }
 
+
     onSubmit(): void {
         console.log(this.formularioCadastro.value);
         console.log(this.userDataId());
@@ -185,15 +187,6 @@ export class CadastroPacienteComponent implements OnInit, OnDestroy {
                 bairroAdress: this.cepPaciente[3],
             }
         });
-    }
-    handleSwitch() {
-        // this.valorSwitch = !this.valorSwitch;
-        // console.log(this.valorSwitch)
-        // if (this.valorSwitch = true) {
-        //     this.formularioCadastro.get('basicInfo')?.enable()
-        // } else if(this.valorSwitch = false) {
-        //     this.formularioCadastro.get('basicInfo')?.disable()
-        // }
     }
 
     // Getters do formulário de identificação
@@ -312,5 +305,23 @@ export class CadastroPacienteComponent implements OnInit, OnDestroy {
         return this.formularioCadastro
             .get("extraInfo")
             ?.get("listOfAlergies") as FormControl;
+    }
+
+
+    get checkbox() {
+        return this.formCheckbox.get("checkbox") as FormControl;
+    }
+
+    handleSwitch() {
+        if (this.checkbox.value) {
+            this.formularioCadastro.disable();
+        } else {
+            this.formularioCadastro.enable();
+        }
+    }
+    createCheckboxForm() {
+        this.formCheckbox = this.fb.group({
+            checkbox: new FormControl(true, Validators.pattern("true")),
+        });
     }
 }

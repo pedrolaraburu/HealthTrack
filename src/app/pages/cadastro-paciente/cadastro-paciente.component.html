@@ -16,13 +16,17 @@
             <div class="d-flex flex-row justify-content-end ms-auto gap-2">
             </div>
         </div>
-        <form [formGroup]="formularioCadastro" (ngSubmit)="onSubmit()">
-            <div class="d-flex flex-row justify-content-end ms-auto gap-2">
+        <div class="d-flex flex-row justify-content-end mx-5 mb-2 gap-2">
+            <form [formGroup]="formCheckbox">
                 <div class="form-check form-switch" style="font-size: 28px;">
                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
-                        (click)="handleSwitch()">
-                    <!-- <label class="form-check-label" for="flexSwitchCheckDefault">Editar</label> -->
+                        (click)="handleSwitch()" formControlName="checkbox">
+                    <label class="form-check-label" for="flexSwitchCheckDefault" style="font-size: 25px;">Editar</label>
                 </div>
+            </form>
+        </div>
+        <form [formGroup]="formularioCadastro" (ngSubmit)="onSubmit()">
+            <div class="d-flex flex-row justify-content-end ms-auto gap-2">
                 <button class="btn btn-danger">Deletar</button>
                 <button class="btn btn-primary mx-3">Salvar</button>
             </div>
