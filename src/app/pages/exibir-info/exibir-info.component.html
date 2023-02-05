@@ -43,7 +43,7 @@
         <h4 class="text-text text-black">Hora do exame: {{this.exam.examInfo.horaExame}}</h4>
         <h4 class="text-text text-black">Tipo do exame: {{this.exam.examInfo.tipoExame}}</h4>
         <h4 class="text-text text-black">Laboratório do exame: {{this.exam.examInfo.laboratorioExame}}</h4>
-        <h4 class="text-text text-black">Nome do exame: {{this.exam.examInfo.urlDocExame}}</h4>
+        <h4 class="text-text text-black"><a [href]="this.exam.examInfo.urlDocExame"><fa-icon [icon]="faPaperclip"></fa-icon>URL do exame</a></h4>
         <h4 class="text-text text-black">Resultado: {{this.exam.examInfo.resultadoExame}}</h4>
     </div>
     <div class="alert alert-warning py-5 mt-5" style="width: 95rem;" role="alert"

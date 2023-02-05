@@ -6,6 +6,7 @@ import { UserService } from "src/app/core/services/user.service";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 @Component({
     selector: "app-exibir-info",
     templateUrl: "./exibir-info.component.html",
@@ -23,6 +24,7 @@ export class ExibirInfoComponent implements OnInit {
     lengthArrayC: any;
     lengthArrayE: any;
     faUser = faUserCircle;
+    faPaperclip = faPaperclip;
     namePacient: string;
     faEdit= faEdit;
     searchText: string;
