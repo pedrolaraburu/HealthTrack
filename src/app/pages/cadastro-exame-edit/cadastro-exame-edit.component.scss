@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Syncopate&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+
+.navbar-brand {
+    // font-family: 'Syncopate', sans-serif;
+    font-size: 40px;
+}
+
+.text-text {
+    font-family: 'Questrial', sans-serif;
+    font-weight: 600;
+    color: #5c5f63;
+}
+
+#navbar {
+    width: 250px;
+    height: 100vh;
+    position: fixed; // para dar toggle
+    // margin-left: -195px; 
+    position: fixed;
+    z-index: 1;
+    background-color: #1975a5;
+    transition: 0.4s;
+}
+
+.nav-link {
+    font-size: 1.25em;
+    font-family: 'Questrial', sans-serif;
+    font-weight: 300;
+}
+
+.navbar-text {
+    font-size: 1.30em;
+    font-family: 'Questrial', sans-serif;
+    font-weight: 500;
+    color: rgb(223, 223, 223);
+}
+
+.nav-link:active,
+.nav-link:focus,
+.nav-link:hover {
+    background-color: #ffffff26;
+}
+
+#statistics {
+    position: relative;
+    left: 280px;
+    font-size: 1.50em;
+}

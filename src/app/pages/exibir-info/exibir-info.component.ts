@@ -97,5 +97,9 @@ export class ExibirInfoComponent implements OnInit {
         this.router.navigate(['/editar/', this.href]);
     }
 
+    onClickEdit(){
+        this.router.navigate(['/editarExame/', this.href]);
+    }
+
 
 }

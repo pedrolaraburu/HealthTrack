@@ -31,6 +31,7 @@ import { CadastroExameComponent } from './pages/cadastro-exame/cadastro-exame.co
 import { ModalREComponent } from './core/shared/modal-re/modal-re.component';
 import { ExibirInfoComponent } from './pages/exibir-info/exibir-info.component';
 import { CadastroConsultaEditComponent } from './pages/cadastro-consulta-edit/cadastro-consulta-edit.component';
+import { CadastroExameEditComponent } from './pages/cadastro-exame-edit/cadastro-exame-edit.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { CadastroConsultaEditComponent } from './pages/cadastro-consulta-edit/ca
     CadastroExameComponent,
     ModalREComponent,
     ExibirInfoComponent,
-    CadastroConsultaEditComponent
+    CadastroConsultaEditComponent,
+    CadastroExameEditComponent
   ],
   imports: [
     BrowserModule,

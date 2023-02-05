@@ -35,7 +35,7 @@
     </div>
     <div class="col-12 p-5 mt-3 mb-5 bg-light rounded-3" style="width: 120%;" *ngFor="let exam of exams">
         <div class="d-flex flex-row justify-content-end ms-auto gap-2">
-            <button class="btn btn-success"><fa-icon [icon]="faEdit"></fa-icon> Editar</button>
+            <button class="btn btn-success" (click)="onClickEdit()"><fa-icon [icon]="faEdit"></fa-icon> Editar</button>
         </div>
         <h3 class="text-text text-black">Exame</h3>
         <h4 class="text-text text-black">Nome do exame: {{this.exam.examInfo.nomeExame}}</h4>

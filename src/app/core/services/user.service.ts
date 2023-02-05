@@ -88,4 +88,20 @@ export class UserService {
             JSON.stringify(appointmentsPacients)
         );
     }
+
+    updateExams(userE: any) {
+        console.log(userE);
+        let examsPacients = [];
+        if (localStorage.getItem("Exams")) {
+            examsPacients = JSON.parse(
+                localStorage.getItem("Exams") as string
+            );
+            let index = examsPacients.findIndex((obj: any) => obj.ids.examID === userE.ids.examID);
+            examsPacients[index] = userE;
+        }
+        localStorage.setItem(
+            "Exams",
+            JSON.stringify(examsPacients)
+        );
+    }
 }
