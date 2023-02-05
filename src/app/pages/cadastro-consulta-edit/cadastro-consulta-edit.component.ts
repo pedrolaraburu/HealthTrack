@@ -31,6 +31,7 @@ export class CadastroConsultaEditComponent implements OnInit {
 	save: any = [];
     userA: any = {};
     href: string;
+    showModal: boolean;
     constructor(
         private _usersService: UserService,
         private fb: FormBuilder,
@@ -122,6 +123,11 @@ export class CadastroConsultaEditComponent implements OnInit {
         }
     }
 
+    onDeleteAppointment(){
+        this._usersService.deleteAppointment(this.userDataAppointment());
+        this.showModal = true;
+    }
+
     getNamePacient() {
         this.href = this.router.url.slice(8, 12);
         this.fillFormSelected = this.filterPacients.filter((e: any) => {
@@ -163,6 +169,11 @@ export class CadastroConsultaEditComponent implements OnInit {
             medicineAppointment: this.save[4],
             dosageAppointment: this.save[5],
         });
+    }
+
+    navigateProntuario(){
+        this.showModal = false;
+        this.router.navigate(['/dashboard/exibir/', this.href]);
     }
 
     //getters

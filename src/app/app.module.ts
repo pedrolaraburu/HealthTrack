@@ -58,7 +58,7 @@ import { CadastroExameEditComponent } from './pages/cadastro-exame-edit/cadastro
     ModalREComponent,
     ExibirInfoComponent,
     CadastroConsultaEditComponent,
-    CadastroExameEditComponent
+    CadastroExameEditComponent,
   ],
   imports: [
     BrowserModule,

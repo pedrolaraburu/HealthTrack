@@ -104,4 +104,22 @@ export class UserService {
             JSON.stringify(examsPacients)
         );
     }
+
+    deleteAppointment(userA: any){
+        // console.log(userA, 'roi delete');
+        let appointmentsPacients = [];
+        if (localStorage.getItem("Appointments")) {
+            appointmentsPacients = JSON.parse(
+                localStorage.getItem("Appointments") as string
+            );
+            // console.log(appointmentsPacients);
+            let index = appointmentsPacients.findIndex((obj: any) => obj.ids.appointmentID === userA.ids.appointmentID);
+            appointmentsPacients.splice(index, 1)
+            // console.log(appointmentsPacients, 'oi delete pos if');
+        }
+        localStorage.setItem(
+            "Appointments",
+            JSON.stringify(appointmentsPacients)
+        );
+    }
 }
