@@ -81,6 +81,7 @@ export class CadastroExameComponent implements OnInit {
             ids: {
                 medicID: this.loggedinUser.id,
                 pacientID: this.selectedOption,
+                examID: Math.floor(Math.random() * 10000).toString(),
             },
             examInfo: {
                 pacienteNomeExame: this.msgExame,

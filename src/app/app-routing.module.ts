@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AuthGuardGuard } from "./core/guards/auth-guard.guard";
+import { CadastroConsultaEditComponent } from "./pages/cadastro-consulta-edit/cadastro-consulta-edit.component";
 import { CadastroConsultaComponent } from "./pages/cadastro-consulta/cadastro-consulta.component";
 import { CadastroExameComponent } from "./pages/cadastro-exame/cadastro-exame.component";
 import { CadastroPacienteComponent } from "./pages/cadastro-paciente/cadastro-paciente.component";
@@ -25,6 +26,7 @@ const routes: Routes = [
             { path: 'exibir/:id', component: ExibirInfoComponent, title: 'HealthTrack - Exibir detalhes'},
         ],
     },
+    { path: 'editar/:id', component: CadastroConsultaEditComponent, title: 'HealthTrack - Editar consulta'}, 
     { path: "**", component: NotfoundComponent, title: "HealthTrack - Erro 404" },
 ];
 

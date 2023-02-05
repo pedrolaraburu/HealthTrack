@@ -9,13 +9,13 @@ import {
     Validators,
     FormControl,
 } from "@angular/forms";
-
+import { Router } from "@angular/router";
 @Component({
-    selector: "app-cadastro-consulta",
-    templateUrl: "./cadastro-consulta.component.html",
-    styleUrls: ["./cadastro-consulta.component.scss"],
+    selector: "app-cadastro-consulta-edit",
+    templateUrl: "./cadastro-consulta-edit.component.html",
+    styleUrls: ["./cadastro-consulta-edit.component.scss"],
 })
-export class CadastroConsultaComponent implements OnInit {
+export class CadastroConsultaEditComponent implements OnInit {
     loggedinUser: any = {};
     faUser = faUserCircle;
     faMagnifyingGlass = faMagnifyingGlass;
@@ -27,14 +27,24 @@ export class CadastroConsultaComponent implements OnInit {
     msgConsulta: string = "[Nome Paciente]";
     fillFormSelected: any = {};
     formAppointment: FormGroup;
+    appointments: any = {};
+	save: any = [];
     userA: any = {};
-    constructor(private _usersService: UserService, private fb: FormBuilder) {}
+    href: string;
+    constructor(
+        private _usersService: UserService,
+        private fb: FormBuilder,
+        private router: Router
+    ) {}
 
     ngOnInit(): void {
         this.loggedIn();
         this.getPacientsData();
         this.doFilterPacients();
         this.createFormAppointment();
+        this.getNamePacient();
+        this.getAppointments();
+        this.fillForm();
     }
 
     loggedIn() {
@@ -58,12 +68,12 @@ export class CadastroConsultaComponent implements OnInit {
         return this.lengthArray, this.filterPacients;
     }
 
-    userDataAppointment(){
-        return this.userA = {
+    userDataAppointment() {
+        return (this.userA = {
             ids: {
                 medicID: this.loggedinUser.id,
-                pacientID: this.selectedOption,
-                appointmentID: Math.floor(Math.random() * 10000).toString(),
+                pacientID: this.href,
+				appointmentID: this.save[6],
             },
             appointmentInfo: {
                 motivoAppointment: this.motivoAppointment.value,
@@ -71,26 +81,51 @@ export class CadastroConsultaComponent implements OnInit {
                 horaAppointment: this.horaAppointment.value,
                 descAppointment: this.descAppointment.value,
                 medicineAppointment: this.medicineAppointment.value,
-                dosageAppointment: this.dosageAppointment.value
-            }
-        }
+                dosageAppointment: this.dosageAppointment.value,
+            },
+        });
     }
 
     createFormAppointment() {
         this.formAppointment = this.fb.group({
-            motivoAppointment: new FormControl(null, [Validators.minLength(8), Validators.maxLength(64), Validators.required]),
+            motivoAppointment: new FormControl(null, [
+                Validators.minLength(8),
+                Validators.maxLength(64),
+                Validators.required,
+            ]),
             dataAppointment: new FormControl(null, Validators.required),
             horaAppointment: new FormControl(null, Validators.required),
-            descAppointment: new FormControl(null, [Validators.minLength(16), Validators.maxLength(1024), Validators.required]),
+            descAppointment: new FormControl(null, [
+                Validators.minLength(16),
+                Validators.maxLength(1024),
+                Validators.required,
+            ]),
             medicineAppointment: new FormControl(null),
-            dosageAppointment: new FormControl(null, [Validators.minLength(16), Validators.maxLength(256), Validators.required]),
+            dosageAppointment: new FormControl(null, [
+                Validators.minLength(16),
+                Validators.maxLength(256),
+                Validators.required,
+            ]),
         });
     }
 
     handleInput() {
         console.log(this.selectedOption);
+    }
+
+    onSubmitAppointment() {
+        if (this.formAppointment.valid) {
+			this._usersService.updateAppointment(this.userDataAppointment());
+            this._usersService.emitChange(true);
+            this.formAppointment.reset();
+            // this.selectedOption = "null";
+        }
+    }
+
+    getNamePacient() {
+        this.href = this.router.url.slice(8, 12);
         this.fillFormSelected = this.filterPacients.filter((e: any) => {
-            return e.ids.pacientID == this.selectedOption;
+            return e.ids.pacientID == this.href;
         });
         console.log(this.fillFormSelected);
         this.fillFormSelected.forEach((element: any) => {
@@ -98,13 +133,36 @@ export class CadastroConsultaComponent implements OnInit {
         });
     }
 
-    onSubmitAppointment(){
-        if (this.formAppointment.valid) {
-            this._usersService.addAppointment(this.userDataAppointment());
-            this._usersService.emitChange(true);
-            this.formAppointment.reset();
-            this.selectedOption = "null";
-        }
+    getAppointments() {
+        this.appointments = JSON.parse(
+            localStorage.getItem("Appointments") as string
+        );
+        // console.log(this.pacients);
+        this.appointments = this.appointments.filter((e: any) => {
+            return e.ids.pacientID == this.href;
+        });
+        console.log(this.appointments);
+        return this.appointments;
+    }
+
+    fillForm() {
+		this.appointments.forEach((element: any) => {
+			this.save.push(element.appointmentInfo.motivoAppointment as string);
+			this.save.push(element.appointmentInfo.dataAppointment as string);
+			this.save.push(element.appointmentInfo.horaAppointment as string);
+			this.save.push(element.appointmentInfo.descAppointment as string);
+			this.save.push(element.appointmentInfo.medicineAppointment as string);
+			this.save.push(element.appointmentInfo.dosageAppointment as string);
+			this.save.push(element.ids.appointmentID as string)
+		});
+        this.formAppointment.patchValue({
+            motivoAppointment: this.save[0],
+            dataAppointment: this.save[1],
+            horaAppointment: this.save[2],
+            descAppointment: this.save[3],
+            medicineAppointment: this.save[4],
+            dosageAppointment: this.save[5],
+        });
     }
 
     //getters
