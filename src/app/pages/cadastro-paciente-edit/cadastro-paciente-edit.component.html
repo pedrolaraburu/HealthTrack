@@ -23,8 +23,8 @@
                         (click)="handleSwitch()">
                     <!-- <label class="form-check-label" for="flexSwitchCheckDefault">Editar</label> -->
                 </div>
-                <button class="btn btn-danger">Deletar</button>
-                <button class="btn btn-primary mx-3">Salvar</button>
+                <button class="btn btn-danger" type="button">Deletar</button>
+                <button class="btn btn-primary mx-3" type="submit">Salvar</button>
             </div>
             <app-basic-info inputFormGroupName="basicInfo"></app-basic-info>
             <h2 class="display-7 text-text text-black fw-bold mt-4">Convênio</h2>
@@ -36,6 +36,28 @@
             <app-modal-re>
                 <h5 class="modal-title mt-2 mb-2" id="exampleModalLabel">Paciente cadastrado!</h5>
             </app-modal-re>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true" *ngIf="showModal">
+                <div class="modal-dialog">
+                    <div class="modal-content modal-lg p-4">
+                        <div class="modal-header">
+                            <h5 class="modal-title mt-2 mb-2" id="exampleModalLabel">Paciente deletada!</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                                (click)="showModal=false"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <i class="bi bi-check2-circle" style="color: green; font-size: 3rem;"></i>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-success col-12 p-2"
+                                (click)="navigateDashboard()">Ok</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <pre>
+                {{ this.formularioCadastro.value | json }}
+            </pre> -->
         </form>
     </div>
 </div>

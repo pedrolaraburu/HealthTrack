@@ -51,7 +51,7 @@
                 <p class="text-text">{{ pacient.basicInfo.birthDate | agePipe }} anos</p>
                 <p class="text-text">{{ pacient.basicInfo.telephone }}</p>
                 <p class="text-text">{{ pacient.convenioInfo.nameConvenio }}</p>
-                <a href="" class="text-text">Ver mais</a>
+                <a [routerLink]="['/editarCadastro/', pacient.ids.pacientID]" class="text-text">Ver mais</a>
             </div>
         </div>
     </div>

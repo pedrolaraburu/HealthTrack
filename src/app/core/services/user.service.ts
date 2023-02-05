@@ -32,7 +32,6 @@ export class UserService {
     }
 
     addPacient(userR: registerIdInterface) {
-        console.log(userR);
         let pacients = [];
         if (localStorage.getItem("Pacients")) {
             pacients = JSON.parse(localStorage.getItem("Pacients") as string);
@@ -44,7 +43,6 @@ export class UserService {
     }
 
     addExam(userE: any) {
-        console.log(userE);
         let examPacients = [];
         if (localStorage.getItem("Exams")) {
             examPacients = JSON.parse(localStorage.getItem("Exams") as string);
@@ -73,49 +71,59 @@ export class UserService {
     }
 
     updateAppointment(userA: any) {
-        console.log(userA);
         let appointmentsPacients = [];
         if (localStorage.getItem("Appointments")) {
             appointmentsPacients = JSON.parse(
                 localStorage.getItem("Appointments") as string
             );
-            let index = appointmentsPacients.findIndex((obj: any) => obj.ids.appointmentID === userA.ids.appointmentID);
+            let index = appointmentsPacients.findIndex(
+                (obj: any) => obj.ids.appointmentID === userA.ids.appointmentID
+            );
             appointmentsPacients[index] = userA;
-            // console.log(appointmentsPacients, "oie")
         }
         localStorage.setItem(
             "Appointments",
             JSON.stringify(appointmentsPacients)
+        );
+    }
+
+    updatePacient(userP: any) {
+        let pacients = [];
+        if (localStorage.getItem("Pacients")) {
+            pacients = JSON.parse(localStorage.getItem("Pacients") as string);
+            let index = pacients.findIndex(
+                (obj: any) => obj.ids.pacientID == userP.ids.pacientID
+            );
+            pacients[index] = userP;
+        }
+        localStorage.setItem(
+            "Pacients",
+            JSON.stringify(pacients)
         );
     }
 
     updateExams(userE: any) {
-        console.log(userE);
         let examsPacients = [];
         if (localStorage.getItem("Exams")) {
-            examsPacients = JSON.parse(
-                localStorage.getItem("Exams") as string
+            examsPacients = JSON.parse(localStorage.getItem("Exams") as string);
+            let index = examsPacients.findIndex(
+                (obj: any) => obj.ids.examID === userE.ids.examID
             );
-            let index = examsPacients.findIndex((obj: any) => obj.ids.examID === userE.ids.examID);
             examsPacients[index] = userE;
         }
-        localStorage.setItem(
-            "Exams",
-            JSON.stringify(examsPacients)
-        );
+        localStorage.setItem("Exams", JSON.stringify(examsPacients));
     }
 
-    deleteAppointment(userA: any){
-        // console.log(userA, 'roi delete');
+    deleteAppointment(userA: any) {
         let appointmentsPacients = [];
         if (localStorage.getItem("Appointments")) {
             appointmentsPacients = JSON.parse(
                 localStorage.getItem("Appointments") as string
             );
-            // console.log(appointmentsPacients);
-            let index = appointmentsPacients.findIndex((obj: any) => obj.ids.appointmentID === userA.ids.appointmentID);
-            appointmentsPacients.splice(index, 1)
-            // console.log(appointmentsPacients, 'oi delete pos if');
+            let index = appointmentsPacients.findIndex(
+                (obj: any) => obj.ids.appointmentID === userA.ids.appointmentID
+            );
+            appointmentsPacients.splice(index, 1);
         }
         localStorage.setItem(
             "Appointments",
@@ -123,21 +131,15 @@ export class UserService {
         );
     }
 
-    deleteExam(userE: any){
-        // console.log(userA, 'roi delete');
+    deleteExam(userE: any) {
         let examsPacients = [];
         if (localStorage.getItem("Exams")) {
-            examsPacients = JSON.parse(
-                localStorage.getItem("Exams") as string
+            examsPacients = JSON.parse(localStorage.getItem("Exams") as string);
+            let index = examsPacients.findIndex(
+                (obj: any) => obj.ids.examID === userE.ids.examID
             );
-            // console.log(appointmentsPacients);
-            let index = examsPacients.findIndex((obj: any) => obj.ids.examID === userE.ids.examID);
-            examsPacients.splice(index, 1)
-            // console.log(appointmentsPacients, 'oi delete pos if');
+            examsPacients.splice(index, 1);
         }
-        localStorage.setItem(
-            "Exams",
-            JSON.stringify(examsPacients)
-        );
+        localStorage.setItem("Exams", JSON.stringify(examsPacients));
     }
 }

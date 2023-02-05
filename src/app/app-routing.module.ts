@@ -5,6 +5,7 @@ import { CadastroConsultaEditComponent } from "./pages/cadastro-consulta-edit/ca
 import { CadastroConsultaComponent } from "./pages/cadastro-consulta/cadastro-consulta.component";
 import { CadastroExameEditComponent } from "./pages/cadastro-exame-edit/cadastro-exame-edit.component";
 import { CadastroExameComponent } from "./pages/cadastro-exame/cadastro-exame.component";
+import { CadastroPacienteEditComponent } from "./pages/cadastro-paciente-edit/cadastro-paciente-edit.component";
 import { CadastroPacienteComponent } from "./pages/cadastro-paciente/cadastro-paciente.component";
 import { CadastroComponent } from "./pages/cadastro/cadastro.component";
 import { DashboardComponent } from "./pages/dashboard/dashboard.component";
@@ -29,6 +30,7 @@ const routes: Routes = [
     },
     { path: 'editar/:id', component: CadastroConsultaEditComponent, title: 'HealthTrack - Editar consulta'}, 
     { path: 'editarExame/:id', component: CadastroExameEditComponent, title: 'HealthTrack - Editar exame'}, 
+    { path: 'editarCadastro/:id', component: CadastroPacienteEditComponent, title:'HealthTrack - Editar cadastro'},
     { path: "**", component: NotfoundComponent, title: "HealthTrack - Erro 404" },
 ];
 

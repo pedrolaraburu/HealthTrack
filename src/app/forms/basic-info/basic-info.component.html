@@ -8,10 +8,10 @@
                 <label for="nomePaciente" style="color:grey">Nome Completo</label>
             </div>
             <select class="form-select" id='selectCadastro' aria-label="Select genero paciente"
-                formControlName="gender" [(ngModel)]="selectedOptionG">
+                formControlName="gender">
                 <option disabled [value]="null" style="color:grey">Gênero</option>
-                <option value="1">Homem</option>
-                <option value="2">Mulher</option>
+                <option [value]="1">Homem</option>
+                <option [value]="2">Mulher</option>
             </select>
             <div class="form-floating">
                 <input type="date" class="form-control" id="dataNascCadastro" aria-describedby="dataNascHelp"
@@ -31,7 +31,7 @@
                 <label for="cpfCadastro" style="color:grey">RG</label>
             </div>
             <select class="form-select" id='selectEstadoCivil' aria-label="Select Estado Civil paciente"
-                formControlName="civilState" [(ngModel)]="selectedOptionC">
+                formControlName="civilState">
                 <option style="color:grey" disabled [value]="null">Estado Civil</option>
                 <option value="1">Solteiro</option>
                 <option value="2">Casado</option>
