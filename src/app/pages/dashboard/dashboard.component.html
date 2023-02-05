@@ -49,7 +49,7 @@
                 <span style="font-size: 100px;"><fa-icon [icon]="faUser"></fa-icon></span>
                 <p class="text-text text-black">{{ pacient.basicInfo.fullName }}</p>
                 <p class="text-text">{{ pacient.basicInfo.birthDate | agePipe }} anos</p>
-                <p class="text-text">{{ pacient.basicInfo.telephone }}</p>
+                <p class="text-text">{{ pacient.basicInfo.telephone | telefone }}</p>
                 <p class="text-text">{{ pacient.convenioInfo.nameConvenio }}</p>
                 <a [routerLink]="['/editarCadastro/', pacient.ids.pacientID]" class="text-text">Ver mais</a>
             </div>

@@ -34,6 +34,7 @@ import { CadastroConsultaEditComponent } from './pages/cadastro-consulta-edit/ca
 import { CadastroExameEditComponent } from './pages/cadastro-exame-edit/cadastro-exame-edit.component';
 import { AgePipePipe } from './core/pipes/age-pipe.pipe';
 import { CadastroPacienteEditComponent } from './pages/cadastro-paciente-edit/cadastro-paciente-edit.component';
+import { TelefonePipe } from './core/pipes/telefone.pipe';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { CadastroPacienteEditComponent } from './pages/cadastro-paciente-edit/ca
     CadastroExameEditComponent,
     AgePipePipe,
     CadastroPacienteEditComponent,
+    TelefonePipe,
   ],
   imports: [
     BrowserModule,
