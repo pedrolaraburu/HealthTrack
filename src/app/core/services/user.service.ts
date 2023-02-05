@@ -122,4 +122,22 @@ export class UserService {
             JSON.stringify(appointmentsPacients)
         );
     }
+
+    deleteExam(userE: any){
+        // console.log(userA, 'roi delete');
+        let examsPacients = [];
+        if (localStorage.getItem("Exams")) {
+            examsPacients = JSON.parse(
+                localStorage.getItem("Exams") as string
+            );
+            // console.log(appointmentsPacients);
+            let index = examsPacients.findIndex((obj: any) => obj.ids.examID === userE.ids.examID);
+            examsPacients.splice(index, 1)
+            // console.log(appointmentsPacients, 'oi delete pos if');
+        }
+        localStorage.setItem(
+            "Exams",
+            JSON.stringify(examsPacients)
+        );
+    }
 }

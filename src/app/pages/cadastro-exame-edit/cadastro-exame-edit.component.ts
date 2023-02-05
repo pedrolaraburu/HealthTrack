@@ -30,6 +30,7 @@ export class CadastroExameEditComponent implements OnInit {
     save: any = [];
     exams: any = {};
     href: string;
+    showModal: boolean;
     constructor(
         private _usersService: UserService,
         private fb: FormBuilder,
@@ -132,6 +133,12 @@ export class CadastroExameEditComponent implements OnInit {
         }
     }
 
+    onDeleteExam(){
+        this._usersService.deleteExam(this.userDataExam());
+        this.showModal = true;
+    }
+
+
     getNamePacient() {
         this.href = this.router.url.slice(13, 17);
         // console.log(this.href);
@@ -174,6 +181,11 @@ export class CadastroExameEditComponent implements OnInit {
             urlDocExame: this.save[5],
             resultadoExame: this.save[6],
         });
+    }
+
+    navigateProntuario(){
+        this.showModal = false;
+        this.router.navigate(['/dashboard/exibir/', this.href]);
     }
 
     //Getters formulario
