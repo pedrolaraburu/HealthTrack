@@ -48,7 +48,7 @@
             <div class="h-100 p-3 mx-0 text-black bg-light rounded-3 text-center">
                 <span style="font-size: 100px;"><fa-icon [icon]="faUser"></fa-icon></span>
                 <p class="text-text text-black">{{ pacient.basicInfo.fullName }}</p>
-                <p class="text-text">{{ pacient.basicInfo.birthDate }}</p>
+                <p class="text-text">{{ pacient.basicInfo.birthDate | agePipe }} anos</p>
                 <p class="text-text">{{ pacient.basicInfo.telephone }}</p>
                 <p class="text-text">{{ pacient.convenioInfo.nameConvenio }}</p>
                 <a href="" class="text-text">Ver mais</a>

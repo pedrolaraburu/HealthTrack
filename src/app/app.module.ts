@@ -32,6 +32,7 @@ import { ModalREComponent } from './core/shared/modal-re/modal-re.component';
 import { ExibirInfoComponent } from './pages/exibir-info/exibir-info.component';
 import { CadastroConsultaEditComponent } from './pages/cadastro-consulta-edit/cadastro-consulta-edit.component';
 import { CadastroExameEditComponent } from './pages/cadastro-exame-edit/cadastro-exame-edit.component';
+import { AgePipePipe } from './core/pipes/age-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { CadastroExameEditComponent } from './pages/cadastro-exame-edit/cadastro
     ExibirInfoComponent,
     CadastroConsultaEditComponent,
     CadastroExameEditComponent,
+    AgePipePipe,
   ],
   imports: [
     BrowserModule,
