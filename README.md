@@ -7,6 +7,8 @@
 <br>
 
 ## Segundo projeto avaliativo da DEVin[Philips]
+A HealthTrack LTDA, empresa líder no segmento tecnológico para gestão hospitalar, está com um projeto novo intitulado HealthTrack, um software audacioso para gestão de inventário médico. O seu perfil chamou a atenção dos gestores, para criar a aplicação Front-End do software, que deverá ser construída utilizando o framework Angular.
+
 <br>
 
 ## 💻 Tecnologias
