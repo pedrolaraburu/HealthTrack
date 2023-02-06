@@ -18,9 +18,15 @@ export class AuthService {
         ));
     }
 
+    authUserToken() {
+        if (localStorage.getItem("token")) {
+            this.testaGuard = true;
+            return this.testaGuard;
+        }
+    }
+
     getNome(user: any) {
         let UserArrayy = [];
-        console.log(user);
         if (localStorage.getItem("Users")) {
             UserArrayy = JSON.parse(localStorage.getItem("Users") as string);
         }

@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
     logins: any = {};
     loginForm: any;
     userSubmitted: boolean = false;
+    loggedinUser: any;
     constructor(
         private _usersService: UserService,
         private router: Router,
@@ -31,6 +32,8 @@ export class LoginComponent implements OnInit {
 
     ngOnInit(): void {
         this.createLoginForm();
+        this.loggedIn();
+        this.detectToken();
     }
 
     loginUser() {
@@ -70,6 +73,17 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/dashboard']);
         } else {
           this.showLoginAlert = true;
+        }
+    }
+
+    loggedIn() {
+        this.loggedinUser = JSON.parse(localStorage.getItem("token") as string);
+        return this.loggedinUser;
+    }
+
+    detectToken(){
+        if (this.loggedinUser != null) {
+            this.router.navigate(['/dashboard']);
         }
     }
 
