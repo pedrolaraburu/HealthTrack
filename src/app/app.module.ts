@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxMaskModule } from 'ngx-mask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -72,7 +73,10 @@ import { TelefonePipe } from './core/pipes/telefone.pipe';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgxMaskModule.forRoot({
+      dropSpecialCharacters: false,
+    })
   ],
   providers: [UserService, AuthService, AuthGuardGuard, SearchPipePipe],
   bootstrap: [AppComponent]

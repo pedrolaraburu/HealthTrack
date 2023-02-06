@@ -154,7 +154,7 @@ export class CadastroPacienteEditComponent implements OnInit {
                 gender: new FormControl(null, Validators.required),
                 birthDate: new FormControl(null, Validators.required),
                 cpf: new FormControl(null, Validators.required),
-                rg: new FormControl(null, Validators.required),
+                rg: new FormControl(null, [Validators.maxLength(20), Validators.required]),
                 civilState: new FormControl(null, Validators.required),
                 telephone: new FormControl(null, Validators.required),
                 emailIdentification: new FormControl(null, Validators.email),

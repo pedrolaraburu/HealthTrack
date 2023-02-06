@@ -22,7 +22,7 @@
         <div class="d-flex flex-row gap-3 mt-3 mb-3">
             <div class="form-floating col-md-4">
                 <input type="text" class="form-control" id="cpfCadastro" aria-describedby="cpfHelp" placeholder="CPF"
-                    name="cpfCadastro" minlength="11" maxlength="11" formControlName="cpf">
+                    name="cpfCadastro" minlength="11" maxlength="11" formControlName="cpf" mask="000.000.000-00">
                 <label for="cpfCadastro" style="color:grey">CPF</label>
             </div>
             <div class="form-floating col-md-4">
@@ -43,8 +43,7 @@
         <div class="d-flex flex-row gap-3 mt-3 mb-3">
             <div class="form-floating col-md-5">
                 <input type="text" class="form-control" id="telefoneCadastro" aria-describedby="telefoneHelp"
-                    placeholder="Telefone" name="telefoneCadastro" minlength="11" maxlength="11"
-                    formControlName="telephone">
+                    placeholder="Telefone" name="telefoneCadastro" formControlName="telephone" mask="(00) 0 0000-0000">
                 <label for="telefoneCadastro" style="color:grey">Telefone</label>
             </div>
             <div class="form-floating col-md-5">

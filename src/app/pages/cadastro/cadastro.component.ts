@@ -59,11 +59,12 @@ export class CadastroComponent implements OnInit {
             ]),
             password1: new FormControl(null, [
                 Validators.required,
-                Validators.minLength(3),
+                Validators.minLength(9),
                 Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/),
             ]),
             password2: new FormControl(null, [
                 Validators.required,
+                Validators.minLength(9),
                 Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/),
             ]),
         });
