@@ -27,7 +27,7 @@
         </div>
         <form [formGroup]="formularioCadastro" (ngSubmit)="onSubmit()">
             <div class="d-flex flex-row justify-content-end ms-auto gap-2">
-                <button class="btn btn-danger">Deletar</button>
+                <button class="btn btn-danger" disabled>Deletar</button>
                 <button class="btn btn-primary mx-3">Salvar</button>
             </div>
             <app-basic-info inputFormGroupName="basicInfo"></app-basic-info>
