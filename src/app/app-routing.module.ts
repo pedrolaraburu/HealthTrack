@@ -17,20 +17,20 @@ const routes: Routes = [
     { path: "", redirectTo: "home", pathMatch: "full" },
     { path: "home", component: HomeComponent, title: "HealthTrack - Login" },
     { path: "cadastro", component: CadastroComponent, title: "HealthTrack - Cadastro" },
-    { path: "dashboard", component: DashboardComponent, title: "HealthTrack - Dashboard" }, //canActivate: [AuthGuardGuard]
+    { path: "dashboard", component: DashboardComponent, title: "HealthTrack - Dashboard", canActivate: [AuthGuardGuard] }, 
     {
         path: "dashboard",
         children: [
-            { path: "add", component: CadastroPacienteComponent, title: "HealthTrack - Cadastrar paciente"},
-            { path: "prontuario", component: ProntuarioComponent, title: "HealthTrack - Listar prontuário",},
-            { path: 'consulta', component: CadastroConsultaComponent, title: "HealthTrack - Cadastrar consulta"},
-            { path: 'exame', component: CadastroExameComponent, title: "HealthTrack - Cadastrar exame"}, 
-            { path: 'exibir/:id', component: ExibirInfoComponent, title: 'HealthTrack - Exibir detalhes'},
+            { path: "add", component: CadastroPacienteComponent, title: "HealthTrack - Cadastrar paciente", canActivate: [AuthGuardGuard]},
+            { path: "prontuario", component: ProntuarioComponent, title: "HealthTrack - Listar prontuário", canActivate: [AuthGuardGuard]},
+            { path: 'consulta', component: CadastroConsultaComponent, title: "HealthTrack - Cadastrar consulta", canActivate: [AuthGuardGuard]},
+            { path: 'exame', component: CadastroExameComponent, title: "HealthTrack - Cadastrar exame", canActivate: [AuthGuardGuard]}, 
+            { path: 'exibir/:id', component: ExibirInfoComponent, title: 'HealthTrack - Exibir detalhes', canActivate: [AuthGuardGuard]},
         ],
     },
-    { path: 'editar/:id', component: CadastroConsultaEditComponent, title: 'HealthTrack - Editar consulta'}, 
-    { path: 'editarExame/:id', component: CadastroExameEditComponent, title: 'HealthTrack - Editar exame'}, 
-    { path: 'editarCadastro/:id', component: CadastroPacienteEditComponent, title:'HealthTrack - Editar cadastro'},
+    { path: 'editar/:id', component: CadastroConsultaEditComponent, title: 'HealthTrack - Editar consulta', canActivate: [AuthGuardGuard]}, 
+    { path: 'editarExame/:id', component: CadastroExameEditComponent, title: 'HealthTrack - Editar exame', canActivate: [AuthGuardGuard]}, 
+    { path: 'editarCadastro/:id', component: CadastroPacienteEditComponent, title:'HealthTrack - Editar cadastro', canActivate: [AuthGuardGuard]},
     { path: "**", component: NotfoundComponent, title: "HealthTrack - Erro 404" },
 ];
 
